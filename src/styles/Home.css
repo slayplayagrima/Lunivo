@@ -1,0 +1,170 @@
+/* ==== Global Styles ==== */
+body, html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+/* ==== Layout Containers ==== */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #0f172a;
+}
+
+.main-content {
+  padding: 40px 24px;
+  flex: 1;
+  max-width: 900px;
+  margin: 120px auto 0 auto; /* increased top margin for clearer spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ==== Typography ==== */
+.home-title {
+  font-size: 50px;
+  font-weight: 900; /* Makes both bold */
+  margin: 0;
+  line-height: 1.0;
+  letter-spacing:  -.025em;
+  text-align: center;
+}
+
+/* Reduce gap between two headings */
+.home-title + .home-title {
+  margin-top: 8px;  /* Smaller space between */
+  margin-bottom: 20px; /* Space before paragraph */
+}
+
+.home-title.gradient {
+  background:   linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+
+.home-subtext {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #bdd1ec;
+  margin-bottom: 32px;
+  max-width: 800px; /* restrict width */
+  text-align: center; /* center text */
+}
+
+
+/* ==== Buttons ==== */
+.home-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background-color: hsl(204, 88%, 66%);
+  color: white;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.primary-btn:hover {
+  background-color: hsl(204, 43%, 39%);
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color:#ffffff;
+  border: 1px solid #475569;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.secondary-btn:hover {
+  background-color: hsl(204, 88%, 66%);
+  border-color: #64748b;
+}
+
+.arrow {
+  font-size: 1.2rem;
+}
+
+/* ==== Card Grid ==== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-card {
+  background-color: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(15, 23, 42, 0.6);
+  transition: transform 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ==== Responsive Styling ==== */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 32px 16px;
+  }
+
+  .home-title {
+    font-size: 36px;
+  }
+
+  .home-subtext {
+    font-size: 16px;
+  }
+
+  .home-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .primary-btn, .secondary-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 28px;
+  }
+
+  .home-subtext {
+    font-size: 15px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}

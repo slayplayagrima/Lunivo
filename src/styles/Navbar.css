@@ -1,0 +1,120 @@
+/* Base Navbar styling */
+nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color:#0f172a; /* Dark background */
+  border-bottom: 1px solid #1e293b; /* Subtle bottom border */
+  z-index: 1000;
+  padding: 8px 16px; /* Reduce padding to make it more compact */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 40px; /* Adjusted height */
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left .logo {
+  height: 80px; /* Reduced logo size */
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navbar-links a {
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+  color: #cbd5e1; /* Light slate color for text */
+}
+
+.navbar-links a:hover {
+  background-color:rgba(100, 116, 139, 0.2)
+}
+
+/* Button Styling */
+.navbar-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.navbar-buttons button {
+  padding: 6px 12px; /* Reduced button padding */
+  font-size: 13px; /* Smaller font size */
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+/* Log In Button */
+.btn-login {
+  background-color: transparent;
+  color: white;
+  border: 4px solid #a9a3a3;
+}
+
+.btn-login:hover {
+  background-color: hsl(204, 88%, 66%);
+  color: white;
+  color: #0f172a;
+}
+
+/* Sign Up Button */
+.btn-signup {
+  background-color: hsl(204, 88%, 66%);
+  color: white;
+}
+
+.btn-signup:hover {
+  background-color: #3d4b60; /* Darker purple */
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+  .navbar-container {
+    padding: 8px 16px;
+  }
+
+  .navbar-links {
+    gap: 20px;
+  }
+
+  .navbar-left .logo {
+    height: 45px; /* Adjust logo size for smaller screens */
+  }
+
+  .navbar-buttons {
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-container {
+    padding: 8px 16px;
+  }
+
+  .navbar-left .logo {
+    height: 40px; /* Adjust logo size for mobile screens */
+  }
+
+  .navbar-links {
+    gap: 16px;
+  }
+}
