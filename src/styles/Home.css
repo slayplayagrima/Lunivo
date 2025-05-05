@@ -6,7 +6,7 @@ body, html {
   overflow-x: hidden;
   width: 100%;
   font-family: 'Inter', sans-serif;
-  background-color: #0f172a;
+  background-color: #061527;
   color: #f1f5f9;
 }
 
@@ -15,14 +15,14 @@ body, html {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #0f172a;
+  background-color: #061527;
 }
 
 .main-content {
   padding: 40px 24px;
   flex: 1;
-  max-width: 900px;
-  margin: 120px auto 0 auto; /* increased top margin for clearer spacing */
+  max-width: 1200px;
+  margin: 120px auto 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,37 +32,34 @@ body, html {
 /* ==== Typography ==== */
 .home-title {
   font-size: 50px;
-  font-weight: 900; /* Makes both bold */
+  font-weight: 900;
   margin: 0;
-  line-height: 1.0;
-  letter-spacing:  -.025em;
+  line-height: 1;
+  letter-spacing: -0.025em;
   text-align: center;
 }
 
-/* Reduce gap between two headings */
 .home-title + .home-title {
-  margin-top: 8px;  /* Smaller space between */
-  margin-bottom: 20px; /* Space before paragraph */
+  margin-top: 8px;
+  margin-bottom: 20px;
 }
 
 .home-title.gradient {
-  background:   linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);
+  background: linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
 }
 
-
 .home-subtext {
   font-size: 18px;
   line-height: 1.6;
   color: #bdd1ec;
   margin-bottom: 32px;
-  max-width: 800px; /* restrict width */
-  text-align: center; /* center text */
+  max-width: 800px;
+  text-align: center;
 }
-
 
 /* ==== Buttons ==== */
 .home-buttons {
@@ -73,7 +70,8 @@ body, html {
   justify-content: center;
 }
 
-.primary-btn, .secondary-btn {
+.primary-btn,
+.secondary-btn {
   padding: 12px 20px;
   font-size: 1rem;
   font-weight: 500;
@@ -97,7 +95,7 @@ body, html {
 
 .secondary-btn {
   background-color: transparent;
-  color:#ffffff;
+  color: #ffffff;
   border: 1px solid #475569;
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
@@ -111,26 +109,112 @@ body, html {
   font-size: 1.2rem;
 }
 
-/* ==== Card Grid ==== */
+/* ==== Cards Grid ==== */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  width: 100%;
 }
 
-.dashboard-card {
+/* ==== Individual Cards ==== */
+.custom-card {
   background-color: #1e293b;
-  padding: 20px;
+  color: white;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(15, 23, 42, 0.6);
-  transition: transform 0.2s ease;
+  height: 100%;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.dashboard-card:hover {
-  transform: translateY(-5px);
+.custom-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-1:hover {
+  box-shadow: 0 6px 15px rgba(57, 144, 231, 0.8);
+}
+.card-2:hover {
+  box-shadow: 0 6px 15px rgba(124, 57, 231, 0.8);
+}
+.card-3:hover {
+  box-shadow: 0 6px 15px rgba(97, 226, 120, 0.8);
+}
+
+.custom-card .MuiCardContent-root {
+  padding: 24px;
+  text-align: left;
+}
+
+.custom-card h5 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.custom-card p {
+  font-size: 16px;
+  color: #a0aec0;
+}
+
+/* Learn More CTA */
+.learn-more {
+  display: none;
+  font-size: 14px;
+  margin-top: 12px;
+  color: #60a5fa;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.custom-card:hover .learn-more {
+  display: block;
+  opacity: 1;
+}
+
+/* ==== Stats Section ==== */
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 80px;
+  padding: 0 24px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 20px;
+  min-width: 200px;
+  text-align: center;
+  flex: 1 1 200px;
+}
+
+.stat-item h1 {
+  font-size: 28px;
+  font-weight: 700;
+  padding-top: 10px;
+  margin: 0;
+}
+
+.stat-item p {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-top: 6px;
 }
 
 /* ==== Responsive Styling ==== */
+@media (max-width: 1024px) {
+  .home-title {
+    font-size: 42px;
+  }
+}
+
 @media (max-width: 768px) {
   .main-content {
     padding: 32px 16px;
@@ -149,9 +233,23 @@ body, html {
     align-items: center;
   }
 
-  .primary-btn, .secondary-btn {
+  .primary-btn,
+  .secondary-btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .stat-item {
+    padding: 16px;
+    min-width: 160px;
+  }
+
+  .stat-item h1 {
+    font-size: 22px;
+  }
+
+  .stat-item p {
+    font-size: 13px;
   }
 }
 
@@ -166,5 +264,9 @@ body, html {
 
   .card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .stat-item {
+    min-width: 100%;
   }
 }
