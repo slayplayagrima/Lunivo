@@ -4,9 +4,9 @@ import { Card, CardContent, Typography } from '@mui/material';
 import "../styles/Home.css";
 
 const Home = () => {
-  return (
+  return(
     <div className="home-container">
-      <Navbar />
+      <Navbar/>
       
       <div className="main-content">
         <h1 className="home-title gradient">Track Your Investments.</h1>
