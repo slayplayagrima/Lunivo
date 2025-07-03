@@ -1,6 +1,6 @@
 /* Base Navbar styling */
 nav {
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   background-color:#061527; /* Dark background */

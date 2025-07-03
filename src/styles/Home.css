@@ -1,5 +1,6 @@
 /* ==== Global Styles ==== */
-body, html {
+body,
+html {
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
@@ -27,6 +28,12 @@ body, html {
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 /* ==== Typography ==== */
@@ -109,72 +116,6 @@ body, html {
   font-size: 1.2rem;
 }
 
-/* ==== Cards Grid ==== */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-  width: 100%;
-}
-
-/* ==== Individual Cards ==== */
-.custom-card {
-  background-color: #1e293b;
-  color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(15, 23, 42, 0.6);
-  height: 100%;
-  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.custom-card:hover {
-  transform: translateY(-6px) scale(1.015);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.card-1:hover {
-  box-shadow: 0 6px 15px rgba(57, 144, 231, 0.8);
-}
-.card-2:hover {
-  box-shadow: 0 6px 15px rgba(124, 57, 231, 0.8);
-}
-.card-3:hover {
-  box-shadow: 0 6px 15px rgba(97, 226, 120, 0.8);
-}
-
-.custom-card .MuiCardContent-root {
-  padding: 24px;
-  text-align: left;
-}
-
-.custom-card h5 {
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.custom-card p {
-  font-size: 16px;
-  color: #a0aec0;
-}
-
-/* Learn More CTA */
-.learn-more {
-  display: none;
-  font-size: 14px;
-  margin-top: 12px;
-  color: #60a5fa;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.custom-card:hover .learn-more {
-  display: block;
-  opacity: 1;
-}
-
 /* ==== Stats Section ==== */
 .stats-row {
   display: flex;
@@ -204,11 +145,274 @@ body, html {
 
 .stat-item p {
   font-size: 14px;
-  color: #94a3b8;
+  color: #bdd1ec;;
   margin-top: 6px;
 }
 
-/* ==== Responsive Styling ==== */
+/* ==== Cards Grid ==== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+/* ==== Individual Cards ==== */
+.custom-card {
+  background-color: #0f172a;
+  color: white;
+  border-radius: 12px;
+  min-height: 220px;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  will-change: transform;
+  border: 1px solid #334155;
+}
+
+.custom-card:hover {
+  transform: translateY(-6px) scale(1.015);
+}
+
+.card-1:hover {
+  box-shadow: 0 6px 15px rgba(57, 144, 231, 0.8);
+}
+
+.card-2:hover {
+  box-shadow: 0 6px 15px rgba(124, 57, 231, 0.8);
+}
+
+.card-3:hover {
+  box-shadow: 0 6px 15px rgba(97, 226, 120, 0.8);
+}
+
+.custom-card .MuiCardContent-root {
+  padding: 24px;
+  text-align: left;
+}
+
+.custom-card h5 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.custom-card p {
+  font-size: 16px;
+  color: #bdd1ec;;
+}
+
+/* ==== Learn More CTA ==== */
+.learn-more {
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  margin-top: 12px;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.custom-card:hover .learn-more {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==== Icon Styling ==== */
+.chart-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 16px;
+  padding: 4px;
+  border-radius: 5px;
+}
+
+/* ==== Why Choose Us Section ==== */
+.why-choose-section {
+  padding: 5rem 0;
+  background: #061527;
+  color: #fff;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  transition: transform 0.3s;
+}
+
+.feature-item:hover {
+  transform: translateX(0.25rem);
+}
+
+.circle {
+  margin-top: 25px;
+  background: rgba(59, 130, 246, 0.2);
+  border-radius: 9999px;
+  padding: 0.5rem;
+}
+
+.icon {
+  height: 1rem;
+  width: 1rem;
+  color: #3b82f6;
+}
+
+.text {
+  margin-left: 0.75rem;
+}
+
+.text h3 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.text p {
+  margin-top: 0.25rem;
+  color: #bdd1ec;;
+  font-size: 0.950rem;
+}
+
+/* ==== Testimonials ==== */
+.testimonials-section {
+  padding: 80px 20px;
+  background: #061527;
+  color: hsl(210, 40%, 98%);
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.section-subtext {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #bdd1ec;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 30px;
+}
+
+@media (min-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.glass-card {
+  background-color: #0f172a;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  padding: 5px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.icon-circle {
+  margin-top: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-circle.blue {
+  background-color: rgba(14, 165, 233, 0.2);
+  color: #0EA5E9;
+}
+
+.icon-circle.purple {
+  background-color: rgba(139, 92, 246, 0.2);
+  color: #8B5CF6;
+}
+
+.icon-circle.green {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #10B981;
+}
+
+.user-info {
+  margin-left: 10px;
+}
+
+.user-name {
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 0;
+  color: white;
+}
+
+.user-role {
+  margin-top: 3px;
+  font-size: 13px;
+  color: #bdd1ec;
+  margin-bottom: 5px;
+}
+
+.stars {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.star-icon {
+  width: 16px;
+  height: 16px;
+  color: #EAB308;
+  margin-right: 4px;
+}
+
+.testimonial-text {
+  color: #bdd1ec;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ==== Responsive Adjustments ==== */
 @media (max-width: 1024px) {
   .home-title {
     font-size: 42px;
@@ -269,4 +473,310 @@ body, html {
   .stat-item {
     min-width: 100%;
   }
+}
+/* === How It Works Section === */
+.howitworks-section {
+  padding: 5rem 1rem;
+}
+
+.howitworks-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.howitworks-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+
+
+.howitworks-header h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.howitworks-header p {
+  color: #bdd1ec;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* === Steps Grid === */
+.howitworks-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.step {
+  position: relative;
+}
+
+.glass-card {
+  background-color: hsla(222, 47%, 13%, 0.8);
+  backdrop-filter: blur(4px);
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  text-align: center;
+  display: flex;          
+  flex-direction: column; 
+  height: 100%;          
+}
+
+.step-icon {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:1px;
+  
+  margin: 1rem auto 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.step-icon.blue {
+  background: rgba(14, 165, 233, 0.2);
+  color: #0EA5E9;
+}
+
+.step-icon.purple {
+  background: rgba(139, 92, 246, 0.2);
+  color: #8B5CF6;
+}
+
+.step-icon.green {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10B981;
+}
+
+.step-icon.orange {
+  background: rgba(249, 115, 22, 0.2);
+  color: #F97316;
+}
+
+.step h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.step p {
+  color: #bdd1ec;
+}
+
+.arrow {
+  display: none;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  color: #374151;
+}
+
+@media (min-width: 768px) {
+  .howitworks-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .arrow {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -2rem;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  .step:last-child .arrow {
+    display: none;
+  }
+}
+/* === Educational Resources Section === */
+.educational-section {
+  padding: 5rem 0;
+  background-color: #061527;
+  color: #f9fafb;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: #bdd1ec;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .resources-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.resource-card {
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(6px);
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.resource-card:hover {
+  box-shadow: 0 6px 15px rgba(57, 144, 231, 0.8);
+}
+
+.resource-card.card-purple:hover {
+  box-shadow: 0 6px 15px rgba(124, 57, 231, 0.8);
+}
+
+.resource-card.card-green:hover {
+  box-shadow: 0 6px 15px rgba(97, 226, 120, 0.8);
+}
+
+.card-image {
+  position: relative;
+  height: 12rem;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #061527, transparent);
+}
+
+.card-label {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.card-label span {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.card-blue .card-label span {
+  background-color: rgba(14, 165, 233, 0.2);
+  color: rgb(14, 165, 233);
+}
+
+.card-purple .card-label span {
+  background-color: rgba(139, 92, 246, 0.2);
+  color: rgb(139, 92, 246);
+}
+
+.card-green .card-label span {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: rgb(16, 185, 129);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-content p {
+  color: #bdd1ec;
+  margin-bottom: 1rem;
+}
+
+.read-more {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(14, 165, 233);
+  transition: all 0.3s ease;
+}
+
+.resource-card.card-purple .read-more {
+  color: rgb(139, 92, 246);
+}
+
+.resource-card.card-green .read-more {
+  color: rgb(16, 185, 129);
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+.resources-button {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.explore-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #f9fafb;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+  background-color: #374151;
+}
+
+.explore-btn .icon-left {
+  margin-right: 0.5rem;
+}
+
+
+.explore-btn:hover {
+  background-color:hsl(204, 88%, 66%) ;
+}
+
+.explore-btn .icon-left {
+  margin-right: 0.5rem;
 }
