@@ -8,11 +8,6 @@
     --muted: hsl(215, 20.2%, 65.1%);
   }
   
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
-    font-family: sans-serif;
-  }
   
   .login-container {
     min-height: 100vh;

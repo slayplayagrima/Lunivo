@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { BarChart, Eye, EyeOff, LogIn, User, Mail } from 'lucide-react';
 import "../styles/Signup.css"
 
-const Signup = () => {
+const SignUp = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -141,4 +141,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUp;

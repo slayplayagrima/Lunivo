@@ -14,7 +14,9 @@ const Navbar = () => {
         <div className="navbar-links">
           <a href="#">Dashboard</a>
           <a href="#">Portfolio</a>
-          <a href="#">Blog</a>
+          <Link to="/blog"> 
+            <a href="#">Blog</a>
+          </Link>
           <a href="#">Markets</a>
           <a href="#">Support</a>
         </div>

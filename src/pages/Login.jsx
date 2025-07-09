@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BarChart, Eye, EyeOff, LogIn, User } from 'lucide-react';
+import { Eye, EyeOff, LogIn, User } from 'lucide-react';
 import "../styles/Login.css";
 import "../styles/Login.css";
 
