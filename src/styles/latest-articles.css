@@ -1,0 +1,241 @@
+/* ============= LATEST ARTICLES SECTION ============= */
+
+.articles-section {
+    padding: 4rem 0;
+    background: #f9f9f9; /* fallback if no variables */
+  }
+  
+  .articles-container {
+    max-width: 1152px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .articles-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2rem;
+  }
+  
+  .articles-accent-line {
+    width: 4px;
+    height: 32px;
+    background: #0070f3; /* fallback primary */
+    border-radius: 9999px;
+  }
+  
+  .articles-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222;
+  }
+  
+  /* ============= CATEGORY TABS ============= */
+  
+  .category-tabs {
+    margin-bottom: 2rem;
+  }
+  
+  .tabs-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .tab-trigger {
+    padding: 0.5rem 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  
+  .tab-trigger:hover {
+    background: #eee;
+  }
+  
+  .tab-trigger[data-state="active"] {
+    background: #0070f3;
+    color: #fff;
+    font-weight: 500;
+  }
+  
+  @media (min-width: 1024px) {
+    .tabs-list {
+      grid-template-columns: repeat(7, 1fr);
+    }
+  }
+  
+  /* ============= ARTICLES GRID ============= */
+  
+  .articles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .articles-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .articles-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* ============= ARTICLE CARD ============= */
+  
+  .article-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  }
+  
+  .article-image-container {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+  }
+  
+  .article-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+  
+  .article-card:hover .article-image {
+    transform: scale(1.05);
+  }
+  
+  .article-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+  }
+  
+  .article-category-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #fff;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  /* ============= ARTICLE CONTENT ============= */
+  
+  .article-content {
+    padding: 1rem;
+  }
+  
+  .article-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+  }
+  
+  .article-card:hover .article-title {
+    color: #0070f3;
+  }
+  
+  .article-excerpt {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #999;
+    margin-bottom: 1rem;
+  }
+  
+  .article-meta-left {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .article-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .article-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    color: #0070f3;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .article-read-more:hover {
+    transform: translateX(4px);
+  }
+  
+  /* ============= EMPTY STATE ============= */
+  
+  .articles-empty {
+    text-align: center;
+    padding: 3rem 0;
+    color: #777;
+    font-size: 1rem;
+  }
+  
+  /* ============= BASIC ANIMATION ============= */
+  
+  .article-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ============= SMALL SCREENS ============= */
+  
+  @media (max-width: 640px) {
+    .tabs-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .tab-trigger {
+      font-size: 0.75rem;
+    }
+  
+    .articles-section {
+      padding: 2rem 0;
+    }
+  }
+  
