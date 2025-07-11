@@ -15,10 +15,13 @@ const Navbar = () => {
           <a href="#">Dashboard</a>
           <a href="#">Portfolio</a>
           <Link to="/blog"> 
-            <a href="#">Blog</a>
+            Blog
           </Link>
           <a href="#">Markets</a>
-          <a href="#">Support</a>
+          <Link to="/support">
+         Support
+          </Link>
+          
         </div>
 
         <div className="navbar-buttons">

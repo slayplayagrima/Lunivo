@@ -1,0 +1,169 @@
+.support-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .support-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .support-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .support-subheading {
+    color: #555;
+  }
+  
+  .support-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  
+  .support-card {
+    flex: 1 1 250px;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .support-icon {
+    color: hsl(196, 94%, 48%);
+  }
+  
+  .support-description {
+    margin-bottom: 1rem;
+  }
+  
+  .support-contact {
+    margin-top: 1rem;
+  }
+  
+  .support-contact-info {
+    font-weight: 600;
+  }
+  
+  .support-availability {
+    font-size: 0.85rem;
+    color: #555;
+  }
+  
+  .support-sections-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .support-form-section,
+  .support-categories-section {
+    flex: 1 1 400px;
+    max-width: 550px;
+  }
+  
+  .support-form-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .support-category {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .support-category-header {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .support-category-icon {
+    color: hsl(196, 94%, 48%);
+    font-size: 32px;
+    margin-top: 4px;
+  }
+  
+  .support-category-title {
+    margin: 0;
+  }
+  
+  .support-category-description {
+    margin: 0.25rem 0 0.75rem;
+  }
+  
+  .support-category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .support-category-list li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .support-article-link {
+    background: none;
+    border: none;
+    color: hsl(196, 94%, 48%);
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .support-article-link:hover {
+    text-decoration: underline;
+  }
+  
+  .support-alert {
+    margin-top: 1rem;
+  }
+  .support-faq-section,
+  .support-status-section {
+    max-width: 800px;
+    margin: 3rem auto 0;
+  }
+  
+  .faq-item {
+    background: #111827;
+    color: #fff;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .faq-item .MuiAccordionSummary-root {
+    padding: 1rem;
+  }
+  
+  .faq-item .MuiAccordionDetails-root {
+    padding: 1rem;
+    color: #bbb;
+  }
+  
+  .support-status-card {
+    background: #111827;
+    color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  .status-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+    background: #1f2937;
+    border-radius: 6px;
+    color: #ccc;
+  }
+  
+  .status-item:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+  
