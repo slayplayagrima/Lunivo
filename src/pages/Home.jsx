@@ -393,10 +393,10 @@ const Home = () => {
     </div>
 
     <div className="resources-button">
-      <a href="/resources" className="explore-btn">
+      <Link to="/blog" className="explore-btn">
         <Lightbulb class="icon-left"></Lightbulb>
         Explore All Resources
-      </a>
+        </Link> 
     </div>
   </div>
 </section>

@@ -8,8 +8,6 @@ import {
   CardActions,
   Typography,
   Button,
-  TextField,
-  MenuItem,
   Alert,
   Accordion,
   AccordionSummary,
@@ -92,11 +90,13 @@ const helpCategories = [
 const faqData = [
   {
     question: "How do I reset my password?",
-    answer: "Click 'Forgot Password' on the login page and follow the instructions sent to your email.",
+    answer:
+      "Click 'Forgot Password' on the login page and follow the instructions sent to your email.",
   },
   {
     question: "How do I connect my bank account?",
-    answer: "Go to Settings > Connected Accounts and click 'Add Bank Account'.",
+    answer:
+      "Go to Settings > Connected Accounts and click 'Add Bank Account'.",
   },
   {
     question: "Is my financial data secure?",
@@ -104,7 +104,8 @@ const faqData = [
   },
   {
     question: "How often is my data updated?",
-    answer: "Balances and transactions update in real-time. Investments update during market hours.",
+    answer:
+      "Balances and transactions update in real-time. Investments update during market hours.",
   },
   {
     question: "Can I export my financial data?",
@@ -141,16 +142,17 @@ export default function Support() {
     <div className="support-container">
       <Navbar />
 
-      <div className="support-header">
+      <header className="support-header">
         <h1>Support Center</h1>
         <p className="support-subheading">
-          Reach out to our team anytime. We’re here to help you succeed.
+          Get help with Lunivo. Find answers to common questions or contact our
+          support team.
         </p>
-      </div>
+      </header>
 
-      <div className="support-flex">
+      <section className="support-channels">
         {supportChannels.map((channel, index) => (
-          <Card key={index} className="support-card">
+          <Card key={index} className="support-channel-card">
             <CardHeader
               avatar={<channel.icon size={48} className="support-icon" />}
               title={<Typography variant="h6">{channel.title}</Typography>}
@@ -159,13 +161,9 @@ export default function Support() {
               <Typography variant="body2" className="support-description">
                 {channel.description}
               </Typography>
-              <div className="support-contact">
-                <Typography variant="subtitle1" className="support-contact-info">
-                  {channel.contact}
-                </Typography>
-                <Typography variant="body2" className="support-availability">
-                  {channel.availability}
-                </Typography>
+              <div className="support-contact-info">
+                <Typography variant="subtitle1">{channel.contact}</Typography>
+                <Typography variant="body2">{channel.availability}</Typography>
               </div>
             </CardContent>
             <CardActions>
@@ -175,78 +173,98 @@ export default function Support() {
             </CardActions>
           </Card>
         ))}
-      </div>
+      </section>
 
-      <div className="support-sections-wrapper">
-        <div className="support-form-section">
-          <Card className="support-form-card">
-            <CardHeader title="Contact Support" />
-            <CardContent>
+      <section className="support-sections">
+        <div className="support-form-wrapper">
+          <div className="support-form-card">
+            <div className="support-form-header">
+              <h2>Contact Support</h2>
+            </div>
+            <div className="support-form-body">
               <form onSubmit={handleContactSubmit} className="support-form">
                 <div className="support-form-row">
-                  <TextField
-                    label="Name"
-                    fullWidth
-                    value={contactForm.name}
-                    onChange={(e) => handleInputChange("name", e.target.value)}
+                  <div className="support-form-field">
+                    <label className="contact-label" htmlFor="name">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      value={contactForm.name}
+                      onChange={(e) =>
+                        handleInputChange("name", e.target.value)
+                      }
+                      required
+                    />
+                  </div>
+                  <div className="support-form-field">
+                    <label className="contact-label" htmlFor="email">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      value={contactForm.email}
+                      onChange={(e) =>
+                        handleInputChange("email", e.target.value)
+                      }
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="support-form-field">
+                  <label className="contact-label" htmlFor="category">Category</label>
+                  <select
+                    id="category"
+                    value={contactForm.category}
+                    onChange={(e) =>
+                      handleInputChange("category", e.target.value)
+                    }
                     required
-                  />
-                  <TextField
-                    label="Email"
-                    type="email"
-                    fullWidth
-                    value={contactForm.email}
-                    onChange={(e) => handleInputChange("email", e.target.value)}
+                  >
+                    <option value="">Select a category</option>
+                    <option value="technical">Technical Issue</option>
+                    <option value="account">Account Question</option>
+                    <option value="billing">Billing Support</option>
+                    <option value="feature">Feature Request</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div className="support-form-field">
+                  <label className="contact-label" htmlFor="subject">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    value={contactForm.subject}
+                    onChange={(e) =>
+                      handleInputChange("subject", e.target.value)
+                    }
                     required
                   />
                 </div>
-
-                <TextField
-                  select
-                  label="Category"
-                  fullWidth
-                  value={contactForm.category}
-                  onChange={(e) => handleInputChange("category", e.target.value)}
-                  required
-                >
-                  <MenuItem value="technical">Technical Issue</MenuItem>
-                  <MenuItem value="account">Account Question</MenuItem>
-                  <MenuItem value="billing">Billing Support</MenuItem>
-                  <MenuItem value="feature">Feature Request</MenuItem>
-                  <MenuItem value="other">Other</MenuItem>
-                </TextField>
-
-                <TextField
-                  label="Subject"
-                  fullWidth
-                  value={contactForm.subject}
-                  onChange={(e) => handleInputChange("subject", e.target.value)}
-                  required
-                />
-
-                <TextField
-                  label="Message"
-                  multiline
-                  rows={5}
-                  fullWidth
-                  value={contactForm.message}
-                  onChange={(e) => handleInputChange("message", e.target.value)}
-                  required
-                />
-
-                <Button type="submit" variant="contained" fullWidth>
+                <div className="support-form-field">
+                  <label className="contact-label" htmlFor="message">Message</label>
+                  <textarea
+                    id="message"
+                    rows="5"
+                    value={contactForm.message}
+                    onChange={(e) =>
+                      handleInputChange("message", e.target.value)
+                    }
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" className="support-form-button">
                   Send Message
-                </Button>
+                </button>
               </form>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
           <Alert icon={<InfoIcon />} severity="info" className="support-alert">
-            For urgent issues affecting your investments, please call our emergency hotline at 1-800-URGENT-1 (available 24/7).
+            For urgent issues affecting your investments, please call our
+            emergency hotline at 1-800-URGENT-1 (available 24/7).
           </Alert>
         </div>
 
-        <div className="support-categories-section">
+        <div className="support-categories">
           <Card className="support-categories-card">
             <CardHeader title="Help Categories" />
             <CardContent>
@@ -255,9 +273,9 @@ export default function Support() {
                   <div className="support-category-header">
                     <category.icon className="support-category-icon" />
                     <div>
-                      <h3 className="support-category-title">{category.title}</h3>
-                      <p className="support-category-description">{category.description}</p>
-                      <ul className="support-category-list">
+                      <h3>{category.title}</h3>
+                      <p>{category.description}</p>
+                      <ul>
                         {category.articles.map((article, idx) => (
                           <li key={idx}>
                             <button className="support-article-link">
@@ -273,9 +291,9 @@ export default function Support() {
             </CardContent>
           </Card>
         </div>
-      </div>
+      </section>
 
-      <div className="support-faq-section">
+      <section className="support-faq">
         <Card className="support-faq-card">
           <CardHeader title="Frequently Asked Questions" />
           <CardContent>
@@ -291,9 +309,9 @@ export default function Support() {
             ))}
           </CardContent>
         </Card>
-      </div>
+      </section>
 
-      <div className="support-status-section">
+      <section className="support-status">
         <Card className="support-status-card">
           <CardHeader title="System Status" />
           <CardContent>
@@ -317,7 +335,7 @@ export default function Support() {
             </Grid>
           </CardContent>
         </Card>
-      </div>
+      </section>
 
       <Footer />
     </div>

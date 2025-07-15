@@ -1,169 +1,311 @@
+/* Target ALL MUI Cards */
+.MuiPaper-root.MuiCard-root {
+  background-color: rgb(31, 44, 59);  /* Dark background */
+  color: #f9fafb !important; /* Default text color inside */
+}
+
+/* Make sure paragraphs in Card use your desired text color */
+.MuiPaper-root.MuiCard-root p {
+  color: #bdd1ec !important;
+}
+
+/* If using Typography variant body2 or others, be specific */
+.MuiPaper-root.MuiCard-root .MuiTypography-body2 {
+  color: #bdd1ec !important;
+}
+
+/* Buttons inside Card */
+.MuiPaper-root.MuiCard-root .MuiButton-contained {
+  background-color: hsl(204, 88%, 66%) !important;
+  color: #fff !important;
+}
+
+.MuiPaper-root.MuiCard-root .MuiButton-contained:hover {
+  background-color: #1e40af !important;
+}
+
+/* === Global === */
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+/* === Container === */
 .support-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  
-  .support-header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* === Header === */
+.support-header {
+  text-align: center;
+  margin: 10rem 0 6rem;
+}
+
+.support-header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.support-subheading {
+  color: #bdd1ec;
+}
+
+/* === Support Channels === */
+.support-channels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  justify-content: center;
+  margin-bottom: 8rem;
+}
+
+.support-channel-card {
+  flex: 1 1 250px;
+  max-width: 350px;
+  color: #f9fafb;
+  text-align: center;
+}
+
+.support-icon {
+  color: hsl(204, 88%, 66%);
+}
+
+.support-description {
+  margin-bottom: 1rem;
+  color: #bdd1ec;
+}
+
+.support-contact-info {
+  margin-top: 1rem;
+}
+
+.support-contact-info span,
+.support-contact-info p {
+  display: block;
+  color: #f9fafb;
+}
+
+.support-channel-card .MuiButton-contained {
+  background-color: hsl(204, 88%, 66%);
+  color: #fff;
+}
+
+.support-channel-card .MuiButton-contained:hover {
+  background-color: #1e40af;
+}
+
+/* === Sections Wrapper === */
+.support-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 6rem;
+}
+
+.support-form-wrapper,
+.support-categories {
+  flex: 1 1 400px;
+  max-width: 550px;
+}
+
+/* === Form Card === */
+.support-form-card {
+  background-color: rgb(31, 44, 59);
+  color: #ffffff;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 550px;
+}
+
+/* === Form Structure === */
+.support-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.support-form-row {
+  display: flex;
+  flex-direction: column; /* <- STACK name + email vertically */
+  gap: 0; /* Remove row gap; use field margin instead */
+}
+
+.support-form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem; /* tighter spacing between fields */
+}
+
+.support-form-field:last-child {
+  margin-bottom: 0; /* no margin after last field */
+}
+
+.support-form-field label {
+  margin-bottom: 0.25rem; /* tighter label spacing */
+  color: #bdd1ec;
+  font-weight: 600;
+}
+
+.support-form-field input,
+.support-form-field select,
+.support-form-field textarea {
+  background-color: #0f172a;
+  border: 1px solid #374151;
+  border-radius: 4px;
+  padding: 0.75rem;
+  color: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.support-form-button {
+  background-color: hsl(204, 88%, 66%);
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.support-form-button:hover {
+  background-color: #1d4ed8;
+}
+
+
+/* === Alert === */
+.support-alert {
+  margin-top: 1rem;
+  max-width: 1500px;
+}
+
+/* === Categories === */
+.support-categories-card {
+  background-color: #1f2937;
+  color: #f9fafb;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.support-category {
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.support-category-header {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.support-category-icon {
+  color: hsl(204, 88%, 66%);
+  font-size: 32px;
+}
+
+.support-category-header h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.support-category-header p {
+  margin: 0 0 0.5rem 0;
+  color: #bdd1ec;
+}
+
+.support-category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.support-category-list li {
+  margin-bottom: 0.5rem;
+}
+
+.support-article-link {
+  background: none;
+  border: none;
+  color: hsl(204, 88%, 66%);
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.support-article-link:hover {
+  text-decoration: underline;
+}
+
+/* === FAQ === */
+.support-faq {
+  max-width: 800px;
+  margin: 0 auto 6rem;
+}
+
+.faq-item {
+  background: #111827;
+  color: #fff;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.faq-item .MuiAccordionSummary-root {
+  padding: 1rem;
+}
+
+.faq-item .MuiAccordionDetails-root {
+  padding: 1rem;
+  color: #bbb;
+}
+
+/* === Status === */
+.support-status {
+  max-width: 800px;
+  margin: 0 auto 6rem;
+}
+
+.support-status-card {
+  background: #111827;
+  color: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  background: #1f2937;
+  border-radius: 6px;
+  padding: 0.75rem;
+  color: #ccc;
+}
+
+.status-item:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
   .support-header h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
   }
-  
-  .support-subheading {
-    color: #555;
+
+  .support-channels {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .support-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    margin-bottom: 3rem;
+
+  .support-sections {
+    flex-direction: column;
   }
-  
-  .support-card {
-    flex: 1 1 250px;
-    max-width: 300px;
-    text-align: center;
-  }
-  
-  .support-icon {
-    color: hsl(196, 94%, 48%);
-  }
-  
-  .support-description {
-    margin-bottom: 1rem;
-  }
-  
-  .support-contact {
-    margin-top: 1rem;
-  }
-  
-  .support-contact-info {
-    font-weight: 600;
-  }
-  
-  .support-availability {
-    font-size: 0.85rem;
-    color: #555;
-  }
-  
-  .support-sections-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-  }
-  
-  .support-form-section,
-  .support-categories-section {
-    flex: 1 1 400px;
-    max-width: 550px;
-  }
-  
+
   .support-form-row {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+    flex-direction: column;
   }
-  
-  .support-category {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .support-category-header {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-  
-  .support-category-icon {
-    color: hsl(196, 94%, 48%);
-    font-size: 32px;
-    margin-top: 4px;
-  }
-  
-  .support-category-title {
-    margin: 0;
-  }
-  
-  .support-category-description {
-    margin: 0.25rem 0 0.75rem;
-  }
-  
-  .support-category-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .support-category-list li {
-    margin-bottom: 0.5rem;
-  }
-  
-  .support-article-link {
-    background: none;
-    border: none;
-    color: hsl(196, 94%, 48%);
-    cursor: pointer;
-    padding: 0;
-    text-align: left;
-  }
-  
-  .support-article-link:hover {
-    text-decoration: underline;
-  }
-  
-  .support-alert {
-    margin-top: 1rem;
-  }
-  .support-faq-section,
-  .support-status-section {
-    max-width: 800px;
-    margin: 3rem auto 0;
-  }
-  
-  .faq-item {
-    background: #111827;
-    color: #fff;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-  }
-  
-  .faq-item .MuiAccordionSummary-root {
-    padding: 1rem;
-  }
-  
-  .faq-item .MuiAccordionDetails-root {
-    padding: 1rem;
-    color: #bbb;
-  }
-  
-  .support-status-card {
-    background: #111827;
-    color: #fff;
-    border-radius: 8px;
-    padding: 1rem;
-  }
-  
-  .status-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.75rem;
-    background: #1f2937;
-    border-radius: 6px;
-    color: #ccc;
-  }
-  
-  .status-item:not(:last-child) {
-    margin-bottom: 0.5rem;
-  }
-  
+}

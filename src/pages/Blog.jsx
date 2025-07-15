@@ -4,7 +4,7 @@ import "../styles/Blog.css";
 import "../styles/latest-articles.css";
 
 import Navbar from "../components/Navbar";
-import LatestArticles from "../components/LatestArticles"; // ✅ adjust the path if needed
+import LatestArticles from "../components/LatestArticles"; //  adjust the path if needed
 
 export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState("all");

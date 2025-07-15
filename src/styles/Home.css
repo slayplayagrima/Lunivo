@@ -612,21 +612,24 @@ html {
 }
 
 .section-header {
-  text-align: center;
   margin-bottom: 4rem;
+  text-align: center; /* Center content horizontally */
 }
 
 .section-title {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; /* Space between title and subtitle */
 }
 
 .section-subtitle {
   color: #bdd1ec;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
+  padding: 0 1rem; /* Optional: add side padding for smaller screens */
+  line-height: 1.5; /* Better readability */
 }
+
 
 .resources-grid {
   display: grid;
@@ -696,17 +699,17 @@ html {
 
 .card-blue .card-label span {
   background-color: rgba(14, 165, 233, 0.2);
-  color: rgb(14, 165, 233);
+  color: rgb(255, 255, 255);
 }
 
 .card-purple .card-label span {
   background-color: rgba(139, 92, 246, 0.2);
-  color: rgb(139, 92, 246);
+  color: rgb(255, 255, 255);
 }
 
 .card-green .card-label span {
   background-color: rgba(16, 185, 129, 0.2);
-  color: rgb(16, 185, 129);
+  color: rgb(255, 255, 255);
 }
 
 .card-content {
@@ -729,16 +732,8 @@ html {
   align-items: center;
   font-size: 0.875rem;
   font-weight: 500;
-  color: rgb(14, 165, 233);
+  color: rgb(255, 255, 255);
   transition: all 0.3s ease;
-}
-
-.resource-card.card-purple .read-more {
-  color: rgb(139, 92, 246);
-}
-
-.resource-card.card-green .read-more {
-  color: rgb(16, 185, 129);
 }
 
 .read-more:hover {
