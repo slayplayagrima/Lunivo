@@ -4,18 +4,22 @@
 
    .hero-container {
     text-align: center;
-    padding: 4rem 1rem;
+    padding: 3.5rem 1rem;
   }
+  
   .hero-title {
     font-size: 3rem;
     font-weight: 600;
-    margin-top: 6.25rem;
+    margin-top: 7rem;
     margin-bottom: 1.5rem;
     line-height: 1.25;
-    background:#fff;
+    background: #fff;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    background: linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   @media (min-width: 768px) {
@@ -25,13 +29,86 @@
   }
   
   .hero-description {
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: #bdd1ec;
     margin-bottom: 2rem;
     line-height: 1.625;
     max-width: 42rem;
     margin-left: auto;
     margin-right: auto;
+  }
+  
+  
+  /* ===========================
+     INSIGHTS CARDS SECTION
+     =========================== */
+  
+  .insights-section {
+    padding: 4rem 1rem;
+    background: #061527; /* subtle dark background for contrast */
+  }
+  
+  .insights-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 768px) {
+    .insights-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .insight-card {
+    background: rgba(17, 24, 39, 0.8); /* dark glassy bg */
+    border: 1px solid hsl(215, 20.2%, 25%);
+    border-radius: 0.5rem;
+    backdrop-filter: blur(4px);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .insight-card:hover {
+    transform: translateY(-0.25rem);
+  }
+  
+  .insight-card-header {
+    text-align: center;
+    padding: 2rem 2rem 1rem;
+  }
+  
+  .insight-icon {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto 1rem;
+    border-radius: 9999px;
+    background: hsla(204, 100%, 71%, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+  }
+  
+  .insight-card:hover .insight-icon {
+    background: #44474a;
+  }
+  
+  .insight-card-header h3 {
+    font-size: 1.125rem; /* 18px */
+    font-weight: 700;
+  }
+  
+  .insight-card-content {
+    padding: 0 2rem 2rem;
+  }
+  
+  .insight-card-content p {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.625;
+    color: #bdd1ec;
+    text-align: center;
   }
   
   
@@ -76,7 +153,8 @@
   }
   
   .featured-card:hover {
-    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 8px 10px -6px rgba(0, 0, 0, 0.1);
   }
   
   .featured-grid {
@@ -110,7 +188,7 @@
   .featured-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, #061527 transparent);
+    background: linear-gradient(to top, #061527, transparent);
   }
   
   .badge {
@@ -203,76 +281,5 @@
   
   .read-more:hover .arrow {
     transform: translateX(0.25rem);
-  }
-  /* ===========================
-   INSIGHTS CARDS SECTION
-   =========================== */
-
-.insights-section {
-    padding: 4rem 1rem;
-    background:#061527; /* subtle dark background for contrast */
-  }
-  
-  .insights-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    max-width: 72rem;
-    margin: 0 auto;
-  }
-  
-  @media (min-width: 768px) {
-    .insights-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  .insight-card {
-    background: rgba(17, 24, 39, 0.8); /* same dark bg as featured card */
-    border: 1px solid hsl(215, 20.2%, 25%);
-    border-radius: 0.5rem;
-    backdrop-filter: blur(4px);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-  }
-  
-  .insight-card:hover {
-    transform: translateY(-0.25rem);
-  }
-  
-  .insight-card-header {
-    text-align: center;
-    padding: 2rem 2rem 1rem;
-  }
-  
-  .insight-icon {
-    width: 3rem;
-    height: 3rem;
-    margin: 0 auto 1rem;
-    border-radius: 9999px;
-    background: hsla(204, 88%, 66%, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease;
-  }
-  
-  .insight-card:hover .insight-icon {
-    background: #44474a;
-  }
-  
-  .insight-card-header h3 {
-    font-size: 1.125rem; /* 18px */
-    font-weight: 700;
-  }
-  
-  .insight-card-content {
-    padding: 0 2rem 2rem;
-  }
-  
-  .insight-card-content p {
-    font-size: 0.875rem; /* 14px */
-    line-height: 1.625;
-    color: #bdd1ec;
-    text-align: center;
   }
   

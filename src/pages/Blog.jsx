@@ -2,9 +2,8 @@ import React, { useState, useMemo } from "react";
 import { BookOpen, TrendingUp, Lightbulb, Target } from "lucide-react";
 import "../styles/Blog.css";
 import "../styles/latest-articles.css";
-
 import Navbar from "../components/Navbar";
-import LatestArticles from "../components/LatestArticles"; //  adjust the path if needed
+import LatestArticles from "../components/LatestArticles";
 
 export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -25,8 +24,7 @@ export default function Blog() {
     {
       id: 2,
       title: "Market Trends to Watch in 2025",
-      excerpt:
-        "Analyze the upcoming market shifts and trends that every investor should know about.",
+      excerpt: "Analyze the upcoming market shifts and trends that every investor should know about.",
       category: "Market Analysis",
       image: "https://source.unsplash.com/random/800x600",
       author: "Alice Smith",
@@ -36,8 +34,7 @@ export default function Blog() {
     {
       id: 3,
       title: "Sustainable Finance Guide",
-      excerpt:
-        "How sustainable investing can reshape your portfolio and long-term goals.",
+      excerpt: "How sustainable investing can reshape your portfolio and long-term goals.",
       category: "Sustainable Finance",
       image: "https://source.unsplash.com/random/800x601",
       author: "Bob Johnson",
@@ -59,8 +56,7 @@ export default function Blog() {
     {
       icon: TrendingUp,
       title: "Market Intelligence",
-      description:
-        "Real-time analysis of market trends and investment opportunities",
+      description: "Real-time analysis of market trends and investment opportunities",
     },
     {
       icon: Lightbulb,
@@ -70,8 +66,7 @@ export default function Blog() {
     {
       icon: Target,
       title: "Strategic Guidance",
-      description:
-        "Actionable investment strategies for every market condition",
+      description: "Actionable investment strategies for every market condition",
     },
   ];
 
@@ -137,6 +132,7 @@ export default function Blog() {
 
             <div className="featured-card">
               <div className="featured-grid">
+                {/* Featured Image */}
                 <div className="featured-image-wrapper">
                   <img
                     src={featuredPost.image}
@@ -147,21 +143,15 @@ export default function Blog() {
                   <span className="badge featured-badge">Featured</span>
                 </div>
 
+                {/* Featured Content */}
                 <div className="featured-content">
-                  <span className="badge badge-outline">
-                    {featuredPost.category}
-                  </span>
+                  <span className="badge badge-outline">{featuredPost.category}</span>
                   <h3>{featuredPost.title}</h3>
                   <p>{featuredPost.excerpt}</p>
 
                   <div className="meta-info">
                     <span>
-                      <svg
-                        className="icon"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
+                      <svg className="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -172,12 +162,7 @@ export default function Blog() {
                       {featuredPost.author}
                     </span>
                     <span>
-                      <svg
-                        className="icon"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
+                      <svg className="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -188,12 +173,7 @@ export default function Blog() {
                       {formatDate(featuredPost.date)}
                     </span>
                     <span>
-                      <svg
-                        className="icon"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
+                      <svg className="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -207,12 +187,7 @@ export default function Blog() {
 
                   <button className="read-more">
                     Read Full Article
-                    <svg
-                      className="icon arrow"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+                    <svg className="icon arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"

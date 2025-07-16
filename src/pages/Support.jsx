@@ -12,8 +12,6 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Chip,
-  Grid,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
@@ -89,28 +87,40 @@ const helpCategories = [
 
 const faqData = [
   {
-    question: "How do I reset my password?",
+    question: "Can I set up price alerts for my investments?",
     answer:
-      "Click 'Forgot Password' on the login page and follow the instructions sent to your email.",
+      "Yes! In your Portfolio, click on any investment and select 'Set Alert'. You can set alerts for price increases, decreases, or percentage changes. We'll notify you via email and in-app notifications.",
   },
   {
-    question: "How do I connect my bank account?",
+    question: "How often is market data updated?",
     answer:
-      "Go to Settings > Connected Accounts and click 'Add Bank Account'.",
+      "Market data is updated in real-time during trading hours (9:30 AM - 4:00 PM EST). After-hours data is updated every 15 minutes. Historical data is updated daily after market close.'.",
   },
   {
-    question: "Is my financial data secure?",
-    answer: "Yes, we use bank-level encryption with 256-bit SSL.",
+    question: "What types of investments can I track?",
+    answer: "You can track stocks, ETFs, mutual funds, bonds, and other securities. We support most major exchanges including NYSE, NASDAQ, and international markets.",
   },
   {
-    question: "How often is my data updated?",
+    question: "How are portfolio returns calculated?",
     answer:
-      "Balances and transactions update in real-time. Investments update during market hours.",
+     "Returns are calculated using the formula: (Current Value - Initial Investment) / Initial Investment × 100. We factor in dividends, capital gains, and any fees to provide accurate performance metrics.",
   },
   {
-    question: "Can I export my financial data?",
-    answer: "Yes, export CSV or PDF from the Reports section.",
+    question: "How do I export my portfolio data?",
+    answer: "Go to Portfolio > Settings > Export Data. You can export to CSV, Excel, or PDF formats. This includes transaction history, performance metrics, and tax documents.",
   },
+  {
+    question: "How do I add a new investment to my portfolio?",
+    answer:"Go to the Portfolio page and click 'Add Investment'. Select the type (stock, mutual fund, or bond), enter the ticker symbol, quantity, and purchase price. The system will automatically fetch current market data."
+  },
+  {
+    question:"Is my financial data secure?",
+    answer:"Yes, we use bank-level encryption (256-bit SSL) and never store your actual account credentials. We're SOC 2 compliant and follow strict data protection protocols."
+  },
+  {
+    question:"How do I cancel my subscription?",
+    answer:"Go to Account Settings > Subscription. You can cancel anytime with no penalties. Your access continues until the end of your current billing period."
+  }
 ];
 
 export default function Support() {
@@ -139,8 +149,9 @@ export default function Support() {
   };
 
   return (
+    <><Navbar />
     <div className="support-container">
-      <Navbar />
+      
 
       <header className="support-header">
         <h1>Support Center</h1>
@@ -209,7 +220,7 @@ export default function Support() {
                     />
                   </div>
                 </div>
-                <div className="support-form-field">
+                <div className="support-form-field support-form-field-category">
                   <label className="contact-label" htmlFor="category">Category</label>
                   <select
                     id="category"
@@ -257,11 +268,6 @@ export default function Support() {
               </form>
             </div>
           </div>
-
-          <Alert icon={<InfoIcon />} severity="info" className="support-alert">
-            For urgent issues affecting your investments, please call our
-            emergency hotline at 1-800-URGENT-1 (available 24/7).
-          </Alert>
         </div>
 
         <div className="support-categories">
@@ -291,6 +297,10 @@ export default function Support() {
             </CardContent>
           </Card>
         </div>
+        <Alert icon={<InfoIcon />} severity="info" className="support-alert">
+            For urgent issues affecting your investments, please call our
+            emergency hotline at 1-800-URGENT-1 (available 24/7).
+          </Alert>
       </section>
 
       <section className="support-faq">
@@ -311,33 +321,8 @@ export default function Support() {
         </Card>
       </section>
 
-      <section className="support-status">
-        <Card className="support-status-card">
-          <CardHeader title="System Status" />
-          <CardContent>
-            <Grid container spacing={2}>
-              <Grid item xs={6} className="status-item">
-                <span>Market Data</span>
-                <Chip label="Operational" color="success" size="small" />
-              </Grid>
-              <Grid item xs={6} className="status-item">
-                <span>Portfolio Sync</span>
-                <Chip label="Operational" color="success" size="small" />
-              </Grid>
-              <Grid item xs={6} className="status-item">
-                <span>Notifications</span>
-                <Chip label="Operational" color="success" size="small" />
-              </Grid>
-              <Grid item xs={6} className="status-item">
-                <span>Data Sync</span>
-                <Chip label="Operational" color="success" size="small" />
-              </Grid>
-            </Grid>
-          </CardContent>
-        </Card>
-      </section>
-
       <Footer />
     </div>
+    </>
   );
 }
