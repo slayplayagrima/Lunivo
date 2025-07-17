@@ -22,13 +22,13 @@ export default function LatestArticles({
 }) {
   const categories = [
     { name: "All Articles", value: "all" },
-    { name: "Market Analysis", value: "market" },
-    { name: "AI & Technology", value: "technology" },
-    { name: "Sustainable Finance", value: "sustainable" },
-    { name: "Digital Assets", value: "crypto" },
-    { name: "Financial Planning", value: "planning" },
-    { name: "Risk Management", value: "risk" },
-  ];
+    { name: "Market Analysis", value: "Market Analysis" },
+    { name: "AI & Technology", value: "AI & Technology" },
+    { name: "Sustainable Finance", value: "Sustainable Finance" },
+    { name: "Digital Assets", value: "Digital Assets" },
+    { name: "Financial Planning", value: "Financial Planning" },
+    { name: "Risk Management", value: "Risk Management" },
+  ];  
 
   const formatDate = (dateString) =>
     new Date(dateString).toLocaleDateString("en-US", {
@@ -47,8 +47,9 @@ export default function LatestArticles({
         </div>
 
         {/* Category Tabs */}
-        <Box sx={{ borderBottom: 1, borderColor: "divider", mb: 4 }}>
+        <Box sx={{ paddingTop:"0",border: 3, paddingBottom:"1rem",borderColor: "divider", mb: 4 }}>
           <Tabs
+            className="custom-tabs"
             value={selectedCategory}
             onChange={(e, newValue) => onCategoryChange(newValue)}
             variant="scrollable"
@@ -56,6 +57,7 @@ export default function LatestArticles({
           >
             {categories.map((category) => (
               <Tab
+              className="custom-tab"
                 key={category.value}
                 label={category.name}
                 value={category.value}
@@ -71,7 +73,14 @@ export default function LatestArticles({
               <Card
                 key={post.id}
                 className="article-card"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                sx={{
+                  animationDelay: `${index * 0.1}s`,
+                  "&:hover": {
+                    boxShadow: "0 6px 20px hsl(204, 88%, 66%)", // You can optionally make hover shadow deeper
+                  },
+                }}
+                
+
               >
                 <CardMedia
                   component="img"
@@ -80,7 +89,7 @@ export default function LatestArticles({
                   alt={post.title}
                 />
                 <Box sx={{ position: "relative", top: "-40px", left: "16px" }}>
-                  <Chip label={post.category} color="primary" />
+                  <Chip sx={{backgroundColor:"hsl(204, 88%, 66%)"}} label={post.category} color="primary" />
                 </Box>
                 <CardHeader title={post.title} />
                 <CardContent>
@@ -90,9 +99,10 @@ export default function LatestArticles({
                   <Box
                     sx={{
                       display: "flex",
-                      justifyContent: "space-between",
+                      justifyContent:"space-around",
                       mt: 2,
                       fontSize: "0.75rem",
+                      paddingTop:"2rem",
                     }}
                   >
                     <Box sx={{ display: "flex", gap: 2 }}>
@@ -106,8 +116,20 @@ export default function LatestArticles({
                     <span>{formatDate(post.date)}</span>
                   </Box>
                 </CardContent>
-                <CardActions>
-                  <Button size="small" endIcon={<ArrowRight size={16} />}>
+                <CardActions sx={{
+                  display:"flex",
+                  justifyContent:"center",
+                  paddingBottom:"1.5rem",
+                }}>
+                  <Button sx={{
+                    backgroundColor:"hsl(204, 88%, 66%)",
+                    textAlign:"center",
+                    color:"white",
+                    "&:hover": {
+                        backgroundColor:"rgba(54, 70, 74, 0.321)",
+                      }
+                  }}
+                  size="small" endIcon={<ArrowRight size={16} />}>
                     Read More
                   </Button>
                 </CardActions>

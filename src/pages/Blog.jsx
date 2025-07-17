@@ -4,6 +4,7 @@ import "../styles/Blog.css";
 import "../styles/latest-articles.css";
 import Navbar from "../components/Navbar";
 import LatestArticles from "../components/LatestArticles";
+import Footer from "../components/Footer";
 
 export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -15,32 +16,146 @@ export default function Blog() {
       excerpt:
         "Discover how artificial intelligence is revolutionizing investment strategies and helping investors achieve superior returns through data-driven insights.",
       category: "AI & Technology",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+      image: "src/assets/card1.png",
       author: "Sarah Chen",
-      date: "2025-01-08",
+      date: "2025-01-04",
       readTime: "8 min read",
       featured: true,
     },
     {
       id: 2,
-      title: "Market Trends to Watch in 2025",
-      excerpt: "Analyze the upcoming market shifts and trends that every investor should know about.",
-      category: "Market Analysis",
-      image: "https://source.unsplash.com/random/800x600",
-      author: "Alice Smith",
-      date: "2025-02-15",
-      readTime: "5 min read",
+      title: "ESG Investing: Aligning Values with Returns",
+      excerpt: "How sustainable investing is consistently delivering both meaningful positive impact and competitive long-term financial performance across global markets.",
+      category: "Sustainable Finance",
+      image: "src/assets/card2.png",
+      author: "Emma Thompson",
+      date: "2025-01-06",
+      readTime: "7 min read",
     },
     {
       id: 3,
-      title: "Sustainable Finance Guide",
-      excerpt: "How sustainable investing can reshape your portfolio and long-term goals.",
-      category: "Sustainable Finance",
-      image: "https://source.unsplash.com/random/800x601",
-      author: "Bob Johnson",
-      date: "2025-03-10",
+      title: "Building a Comprehensive Financial Plan for the Decade",
+      excerpt:
+        "Craft a detailed, long-term financial roadmap that aligns closely with your evolving life goals and adapts to shifting economic changes and market trends.",
+      category: "Financial Planning",
+      image: "src/assets/card3.png",
+      author: "Lena Walsh",
+      date: "2025-01-08",
       readTime: "6 min read",
+      featured: true,
     },
+    {
+      id: 4,
+      title: "Market Volatility: Strategic Approaches for 2025",
+      excerpt:
+        "Navigate market uncertainty with proven strategies that protect and grow your wealth during volatile periods.",
+      category: "Market Analysis",
+      image: "src/assets/card4.png",
+      author: "Michael Rodriguez",
+      date: "2025-01-22",
+      readTime: "6 min read",
+      featured: true,
+    },
+    {
+      id: 5,
+      title: "Risk Assessment Techniques for High-Net-Worth Portfolios",
+      excerpt:
+        "Learn to identify and mitigate portfolio risks using modern tools and diversification models tailored for high-net-worth individuals.",
+      category: "Risk Management",
+      image: "https://images.unsplash.com/photo-1591696205602-2f950c417cb9",
+      author: "Sophie Allen",
+      date: "2025-02-12",
+      readTime: "5 min read",
+      featured: false,
+    },
+    {
+      id: 6,
+      title: "Cryptocurrency Portfolio Integration",
+      excerpt:
+        "Explore strategic approaches to integrating digital assets into traditional investment portfolios while balancing growth and risk.",
+      category: "Digital Assets",
+      image: "src/assets/card6.png",
+      author: "David Kim",
+      date: "2025-02-14",
+      readTime: "5 min read",
+      featured: false,
+    },
+    {
+      id: 7,
+      title: "Global Market Trends to Watch in 2025",
+      excerpt:
+        "Analyze key indicators and macroeconomic trends shaping global markets and investor behavior this year.",
+      category: "Market Analysis",
+      image: "src/assets/card7.png",
+      author: "Linda Zhao",
+      date: "2025-03-01",
+      readTime: "6 min read",
+      featured: false,
+    },
+    {
+      id: 8,
+      title: "AI-Powered Investing: The Future of Asset Management",
+      excerpt:
+        "Discover how artificial intelligence is revolutionizing portfolio strategies and decision-making in finance.",
+      category: "AI & Technology",
+      image: "src/assets/card8.png",
+      author: "Raj Patel",
+      date: "2025-03-12",
+      readTime: "4 min read",
+      featured: true,
+    },
+    {
+      id: 9,
+      title: "Aligning ESG Goals with Financial Returns",
+      excerpt:
+        "Learn how sustainable investing is driving long-term performance while meeting environmental and social goals.",
+      category: "Sustainable Finance",
+      image: "src/assets/card9.png",
+      author: "Sofia Mendes",
+      date: "2025-02-20",
+      readTime: "5 min read",
+      featured: false,
+    },
+    {
+      id: 10,
+      title: "Tokenization and the Future of Real Assets",
+      excerpt:
+        "Understand how tokenized real estate and commodities are expanding access and transforming asset ownership.",
+      category: "Digital Assets",
+      image: "src/assets/card10.png",
+      author: "Chris Lang",
+      date: "2025-01-29",
+      readTime: "7 min read",
+      featured: true,
+    },
+    {
+      id: 11,
+      title: "Financial Planning Milestones in Your 30s and 40s",
+      excerpt:
+        "Create a plan that evolves with life changes—from growing your family as well as advancing in your career goals.",
+      category: "Financial Planning",
+      image: "src/assets/card11.png",
+      author: "Emily Torres",
+      date: "2025-03-18",
+      readTime: "6 min read",
+      featured: false,
+    },
+    {
+      id: 12,
+      title: "Techniques for Managing Risk in Volatile Markets",
+      excerpt:
+        "Use diversification strategies to protect your portfolio against downside during unpredictable market cycles to maintain financial balance.",
+      category: "Risk Management",
+      image: "src/assets/card12.png",
+      author: "Oliver Brooks",
+      date: "2025-02-09",
+      readTime: "5 min read",
+      featured: false,
+    },
+    
+    
+    
+    
   ];
 
   const formatDate = (dateString) =>
@@ -211,6 +326,7 @@ export default function Blog() {
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
       />
+      <Footer/>
     </>
   );
 }

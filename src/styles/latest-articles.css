@@ -3,10 +3,11 @@
 .articles-section {
     padding: 4rem 0;
     background: #061527; /* fallback if no variables */
+    padding-bottom: 6rem;
   }
   
   .articles-container {
-    max-width: 1152px;
+    max-width: 1250px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
@@ -21,14 +22,14 @@
   .articles-accent-line {
     width: 4px;
     height: 32px;
-    background: #0070f3; /* fallback primary */
+    background:hsl(204, 88%, 66%); /* fallback primary */
     border-radius: 9999px;
   }
   
   .articles-title {
     font-size: 2rem;
     font-weight: 700;
-    color: #222;
+    color: #fff;
   }
   
   /* ============= CATEGORY TABS ============= */
@@ -37,12 +38,39 @@
     margin-bottom: 2rem;
   }
   
+  .custom-tabs {
+    background: #061527;
+    border-radius: 8px;
+    color:white;
+  }
+  
+  .custom-tab {
+    color: #fff !important;
+    font-weight: 500;
+    transition: background 0.2s ease;
+  }
+  
+  .custom-tab:hover {
+    background-color: rgba(54, 70, 74, 0.321) !important;
+  }
+  
+  .custom-tab.Mui-selected {
+    color: hsl(204, 88%, 66%)!important;
+    background-color: #0f172a;
+  }
+ 
+  .custom-tabs .MuiTabs-indicator {
+    background-color: hsl(204, 88%, 66%);
+  }
+  
+  
   .tabs-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
+    color: white;
     overflow: hidden;
   }
   
@@ -61,7 +89,7 @@
   }
   
   .tab-trigger[data-state="active"] {
-    background: #0070f3;
+    background: hsl(204, 88%, 66%);
     color: #fff;
     font-weight: 500;
   }
@@ -134,7 +162,7 @@
     position: absolute;
     top: 12px;
     left: 12px;
-    background: #fff;
+    background: hsl(204, 88%, 66%) !important;
     border: 1px solid #ddd;
     font-size: 12px;
     padding: 4px 8px;
@@ -155,7 +183,7 @@
   }
   
   .article-card:hover .article-title {
-    color: #0070f3;
+    color: hsl(204, 88%, 66%) !important;
   }
   
   .article-excerpt {
@@ -188,7 +216,7 @@
     align-items: center;
     gap: 6px;
     font-size: 0.875rem;
-    color: #0070f3;
+    color:  hsl(204, 88%, 66%) !important;
     background: transparent;
     border: none;
     cursor: pointer;

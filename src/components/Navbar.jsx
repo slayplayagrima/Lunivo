@@ -8,7 +8,9 @@ const Navbar = () => {
     <nav>
       <div className="navbar-container">
         <div className="navbar-left">
+          <Link to="/home">
           <img src={logo} alt="Lunivo Logo" className="logo" />
+          </Link>
         </div>
 
         <div className="navbar-links">
