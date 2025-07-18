@@ -1,0 +1,219 @@
+/* ================================
+   1. ROOT LAYOUT
+   ================================ */
+
+   .market-container {
+    padding: 4rem;
+    background-color: #061527;
+    color: white;
+    min-height: 100vh;
+  }
+  
+  /* ================================
+     2. PAGE HEADINGS & TEXT
+     ================================ */
+  
+     .market-heading {
+        text-align: center;
+        background: linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 0.5rem;
+        padding-top: 7rem;
+        font-weight: 1000 !important;
+      }
+      
+  .market-subtext {
+    color: #bdd1ec;
+    margin-bottom: 1rem;
+    padding-top: 0.5rem;
+    text-align: center;
+    padding-bottom: 8rem;
+  }
+  
+  /* ================================
+     3. MARKET STATUS BAR
+     ================================ */
+  
+  .status-bar {
+    background: #0f172a;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .market-status {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+  }
+  
+  .market-status.open .status-dot {
+    background-color: #22c55e;
+  }
+  
+  .market-status.closed .status-dot {
+    background-color: #f43f5e;
+  }
+  
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+  
+  .countdown {
+    margin-left: 1rem;
+    font-size: 0.875rem;
+    color: #bdd1ec;
+  }
+  
+  .last-updated {
+    font-size: 0.85rem;
+    color: #bdd1ec;
+  }
+    /* ================================
+     7. OVERVIEW CARDS SECTION
+     ================================ */
+  
+     .overview-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+      
+      .overview-card {
+        background-color: #0f172a!important;
+        color: white !important;
+        border-radius: 16px;
+        flex: 1 1 22%;
+        min-width: 220px;
+      }
+      
+  
+  /* ================================
+     5. OVERVIEW SECTION
+     ================================ */
+  
+  .overview-content {
+    display: flex;
+    gap: 2rem;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+  }
+  
+  .chart-card,
+  .sector-card {
+    background-color: #0f172a;
+    padding: 1.5rem;
+    border-radius: 16px;
+    flex: 1 1 45%;
+    min-width: 300px;
+  }
+  
+  .chart-title {
+    font-weight: 800;
+    color: white;
+    padding:1rem;
+  }
+  
+  /* ================================
+     6. MARKET STATISTICS CARDS
+     ================================ */
+  
+  .market-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    padding-bottom: 0rem;
+  }
+  
+  .stat-card {
+    background-color: #0f172a;
+    border-radius: 16px;
+    padding: 1rem 0rem;
+    flex: 1 1 20%;
+    min-width: 160px;
+    text-align: center;
+    color: white;
+  }
+  
+
+  /* ================================
+     8. STOCK TABLE SECTION
+     ================================ */
+  
+  .stock-market-section {
+    margin-top: 0rem;
+    background-color: #061527;
+    padding: 4rem;
+    border-radius: 16px;
+    margin-bottom: 0rem;
+
+  }
+  
+  .stock-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .table-header,
+  .table-row {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .table-header {
+    background-color: #0f172a;
+    font-weight: 600;
+    color: hsl(204, 88%, 66%);
+    text-align: center;
+  }
+  
+  .table-row {
+    background-color:#0f172a;
+    text-align: center;
+  }
+  
+  /* ================================
+     9. SECTOR TAGS
+     ================================ */
+  
+  .sector-tag {
+    background-color: #2d3748;
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    color: #e2e8f0;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  /* ================================
+     10. COLOR UTILITIES
+     ================================ */
+  
+  .positive {
+    color: #22c55e;
+  }
+  
+  .negative {
+    color: #ef4444;
+  }
+  

@@ -14,12 +14,12 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-links">
-          <a href="#">Dashboard</a>
+         <Link to="/dashboard">Dashboard</Link> 
           <a href="#">Portfolio</a>
           <Link to="/blog"> 
             Blog
           </Link>
-          <a href="#">Markets</a>
+          <a href="/market">Markets</a>
           <Link to="/support">
          Support
           </Link>

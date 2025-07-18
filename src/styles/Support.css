@@ -38,7 +38,7 @@
 
 /* === Container === */
 .support-container {
-  max-width: 1500px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -47,11 +47,12 @@
 .support-header {
   text-align: center;
   margin: 11rem 0 9rem;
-  color:linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);
+  color:linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);;
 }
 
 .support-header h1 {
   font-size: 4rem;
+  color:linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);
   margin-bottom: 0.5rem;
   background: linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);
   -webkit-background-clip: text;

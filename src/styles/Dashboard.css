@@ -1,0 +1,177 @@
+/* Base Styles */
+body {
+    background-color: #061527;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Wrapper */
+  .dashboard {
+    padding: 20px 40px;
+  }
+  
+  /* Header */
+
+  .header{
+    margin-bottom: 10rem;
+  }
+  .header div {
+    color: #fff;
+    margin-bottom: 3px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 3.5rem;
+    margin-top: 10rem;
+    background: linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .header p {
+    color:#bdd1ec;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 80px;
+    padding: 0 2rem;
+  }
+  
+  .stat-box {
+    background: #0f172a;
+    padding: 0 10px;
+    padding-bottom: 2rem;
+    border-radius: 12px;
+    border: 1px solid #1f2a3a;
+    text-align: center;
+  }
+  .stat-box h3{
+    font-size: 1.8rem;
+    padding-bottom: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+  .stat-box p{
+    font-size: 1rem;
+    color:#bdd1ec;
+  }
+  
+  /* Colors */
+  .green {
+    color: #00e676;
+  }
+  
+  .red {
+    color: #f44336;
+  }
+  
+  /* Charts */
+  .charts-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    margin:0.5rem;
+  }
+  
+  .chart-card {
+    flex: 1;
+    background: #0f172a;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #1f2a3a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Actions */
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+  }
+  
+  .add-btn {
+    background-color: hsl(204, 88%, 66%) !important;
+    color: white;
+  }
+  .add-btn:hover{
+    background-color: #061527 !important;
+    color:hsl(204, 88%, 66%) !important;
+  }
+  
+  .alert-btn {
+    color:hsl(204, 88%, 66%) !important;
+    border-color: hsl(204, 88%, 66%) !important;
+  }
+  .alert-btn:hover{
+    background-color:hsl(204, 88%, 66%) !important;
+    color:white !important;
+  }
+  
+  /* Table */
+  .holdings-table {
+    background: #0f172a;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #1f2a3a;
+    margin: 0.5rem;
+    margin-bottom: 5rem;
+  }
+  .holdings-table h3{
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  table {
+    width: 100%;
+    color: #fff;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  th{
+    color: #bdd1ec;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #1f2a3a;
+  }
+  
+  .alert-tag {
+    font-size: 0.85rem;
+    margin-left: 4px;
+    color: yellow;
+  }
+  .remove-btn{
+    color: rgb(181, 7, 7) !important;
+  }
+  .remove-btn:hover{
+    color: white !important;
+    background-color: rgb(181, 7, 7);
+  }
+  .portfolio-btn{
+    color:hsl(204, 88%, 66%) !important;
+  }
+  .portfolio-btn:hover{
+    background-color: hsl(204, 88%, 66%) ;
+    color:white !important;
+  }
+  
+  /* Dialog */
+  .close-btn {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+  }
+  

@@ -47,7 +47,7 @@ export default function LatestArticles({
         </div>
 
         {/* Category Tabs */}
-        <Box sx={{ paddingTop:"0",border: 3, paddingBottom:"1rem",borderColor: "divider", mb: 4 }}>
+        <Box sx={{ paddingTop:"0",border: 0, paddingBottom:"1rem",borderColor: "divider", mb: 4 }}>
           <Tabs
             className="custom-tabs"
             value={selectedCategory}
