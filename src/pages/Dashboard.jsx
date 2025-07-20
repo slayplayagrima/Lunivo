@@ -194,36 +194,178 @@ function Dashboard() {
         </div>
 
         {/* Add Investment Dialog */}
-        <Dialog open={addOpen} onClose={()=>setAddOpen(false)}>
+        <Dialog 
+         PaperProps={{
+          sx: {
+            backgroundColor: '#061527',
+            color: 'white',
+            borderRadius: 2,
+            minWidth: 400,
+            p: 2
+          }
+        }}
+        className="dialog-box" open={addOpen} onClose={()=>setAddOpen(false)}>
           <DialogTitle>
             Add New Investment
             <IconButton onClick={()=>setAddOpen(false)} className="close-btn"><CloseIcon/></IconButton>
-          </DialogTitle>
+          </DialogTitle >
           <DialogContent>
-            <TextField fullWidth label="Symbol" margin="dense" value={newInvestment.symbol} onChange={e=>setNewInvestment({...newInvestment,symbol:e.target.value})}/>
-            <Select fullWidth margin="dense" value={newInvestment.type} onChange={e=>setNewInvestment({...newInvestment,type:e.target.value})}>
-              <MenuItem value="Stock">Stock</MenuItem><MenuItem value="Mutual Fund">Mutual Fund</MenuItem><MenuItem value="Bond">Bond</MenuItem><MenuItem value="Crypto">Crypto</MenuItem>
-            </Select>
-            <TextField fullWidth label="Quantity" type="number" margin="dense" value={newInvestment.quantity} onChange={e=>setNewInvestment({...newInvestment,quantity:e.target.value})}/>
-            <TextField fullWidth label="Purchase Price" type="number" margin="dense" value={newInvestment.purchasePrice} onChange={e=>setNewInvestment({...newInvestment,purchasePrice:e.target.value})}/>
+            <TextField sx={{ '& label': {
+      color: '#bdd1ec',          // label default color
+    }, '& label.Mui-focused': {
+      color: 'hsl(204, 88%, 66%)',          // label color when focused
+    }, '& .MuiInputBase-root': {
+      color: 'white', '&:hover fieldset': {
+        borderColor: 'hsl(204, 88%, 66%) ', // on hover
+      }, '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: '#bdd1ec', // default border color
+        } }}
+        }} fullWidth label="Symbol" margin="dense" value={newInvestment.symbol} onChange={e=>setNewInvestment({...newInvestment,symbol:e.target.value})}/>
+            <Select
+  fullWidth
+  margin="dense"
+  value={newInvestment.type}
+  onChange={e => setNewInvestment({ ...newInvestment, type: e.target.value })}
+  displayEmpty
+  sx={{
+    color: "#bdd1ec",
+    '& .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#000', // initial border color: black
+    },
+    '&:hover .MuiOutlinedInput-notchedOutline': {
+      borderColor: 'hsl(204, 88%, 66%)', // hover border
+    },
+    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: 'hsl(204, 88%, 66%)', // focus border
+    },
+    '& .MuiSelect-icon': {
+      color: '#bdd1ec', // dropdown arrow
+    }
+  }}
+  MenuProps={{
+    PaperProps: {
+      sx: {
+        backgroundColor: '#061527', // dropdown menu background
+        color: '#bdd1ec' // dropdown text color
+      }
+    }
+  }}
+>
+  <MenuItem value="Stock">Stock</MenuItem>
+  <MenuItem value="Mutual Fund">Mutual Fund</MenuItem>
+  <MenuItem value="Bond">Bond</MenuItem>
+  <MenuItem value="Crypto">Crypto</MenuItem>
+</Select>
+
+            <TextField 
+            sx={{ '& label': {
+              color: '#bdd1ec',          // label default color
+            }, '& label.Mui-focused': {
+              color: 'hsl(204, 88%, 66%)',          // label color when focused
+            }, '& .MuiInputBase-root': {
+              color: 'white', '&:hover fieldset': {
+                borderColor: 'hsl(204, 88%, 66%) ', // on hover
+              }, '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: '#bdd1ec', // default border color
+                } }}
+                }}
+            fullWidth label="Quantity" type="number" margin="dense" value={newInvestment.quantity} onChange={e=>setNewInvestment({...newInvestment,quantity:e.target.value})}/>
+            <TextField 
+            sx={{ '& label': {
+              color: '#bdd1ec',          // label default color
+            }, '& label.Mui-focused': {
+              color: 'hsl(204, 88%, 66%)',          // label color when focused
+            }, '& .MuiInputBase-root': {
+              color: 'white', '&:hover fieldset': {
+                borderColor: 'hsl(204, 88%, 66%) ', // on hover
+              }, '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: '#bdd1ec', // default border color
+                } }}
+                }}
+            fullWidth label="Purchase Price" type="number" margin="dense" value={newInvestment.purchasePrice} onChange={e=>setNewInvestment({...newInvestment,purchasePrice:e.target.value})}/>
           </DialogContent>
           <DialogActions>
-            <Button variant="contained" onClick={handleAddInvestment}>Add Investment</Button>
+            <Button sx={{
+              backgroundColor:"hsl(204, 88%, 66%)"
+            }} variant="contained" onClick={handleAddInvestment}>Add Investment</Button>
           </DialogActions>
         </Dialog>
 
         {/* Price Alert Dialog */}
-        <Dialog open={alertOpen} onClose={()=>setAlertOpen(false)}>
+        <Dialog 
+         PaperProps={{
+          sx: {
+            backgroundColor: '#061527',
+            color: 'white',
+            borderRadius: 2,
+            minWidth: 400,
+            p: 2
+          }
+        }}
+        className="dialog-box" open={alertOpen} onClose={()=>setAlertOpen(false)}>
           <DialogTitle>
             Set Price Alert
             <IconButton onClick={()=>setAlertOpen(false)} className="close-btn"><CloseIcon/></IconButton>
           </DialogTitle>
           <DialogContent>
-            <TextField fullWidth label="Asset Symbol" margin="dense" value={alert.symbol} onChange={e=>setAlert({...alert,symbol:e.target.value})}/>
-            <Select fullWidth margin="dense" value={alert.direction} onChange={e=>setAlert({...alert,direction:e.target.value})}>
+            <TextField 
+            sx={{ '& label': {
+              color: '#bdd1ec',          // label default color
+            }, '& label.Mui-focused': {
+              color: 'hsl(204, 88%, 66%)',          // label color when focused
+            }, '& .MuiInputBase-root': {
+              color: 'white', '&:hover fieldset': {
+                borderColor: 'hsl(204, 88%, 66%) ', // on hover
+              }, '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: '#bdd1ec', // default border color
+                } }}
+                }}
+                fullWidth label="Asset Symbol" margin="dense" value={alert.symbol} onChange={e=>setAlert({...alert,symbol:e.target.value})}/>
+            <Select
+            sx={{
+              color: "#bdd1ec",
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#000', // initial border color: black
+              },
+              '&:hover .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'hsl(204, 88%, 66%)', // hover border
+              },
+              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'hsl(204, 88%, 66%)', // focus border
+              },
+              '& .MuiSelect-icon': {
+                color: '#bdd1ec', // dropdown arrow
+              }
+            }}
+            MenuProps={{
+              PaperProps: {
+                sx: {
+                  backgroundColor: '#061527', // dropdown menu background
+                  color: '#bdd1ec' // dropdown text color
+                }
+              }
+            }}
+            fullWidth margin="dense" value={alert.direction} onChange={e=>setAlert({...alert,direction:e.target.value})}>
               <MenuItem value="Above">Above</MenuItem><MenuItem value="Below">Below</MenuItem>
             </Select>
-            <TextField fullWidth label="Target Price" type="number" margin="dense" value={alert.price} onChange={e=>setAlert({...alert,price:e.target.value})}/>
+            <TextField 
+            sx={{ '& label': {
+      color: '#bdd1ec',          // label default color
+    }, '& label.Mui-focused': {
+      color: 'hsl(204, 88%, 66%)',          // label color when focused
+    }, '& .MuiInputBase-root': {
+      color: 'white', '&:hover fieldset': {
+        borderColor: 'hsl(204, 88%, 66%) ', // on hover
+      }, '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: '#bdd1ec', // default border color
+        } }}
+        }}
+        fullWidth label="Target Price" type="number" margin="dense" value={alert.price} onChange={e=>setAlert({...alert,price:e.target.value})}/>
           </DialogContent>
           <DialogActions>
             <Button variant="contained" onClick={() => {

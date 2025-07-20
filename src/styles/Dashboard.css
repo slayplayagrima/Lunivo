@@ -171,8 +171,8 @@ body {
   /* Dialog */
   .close-btn {
     position: absolute;
-    right: 0px;
     left:20rem;
     top: 8px;
+    color:white !important;
   }
-  
+
