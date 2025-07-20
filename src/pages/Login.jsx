@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, LogIn, User } from 'lucide-react';
-import "../styles/Login.css";
 import "../styles/Login.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import { useNavigate } from 'react-router-dom';
 
-
-
+// Login Component
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -23,9 +20,7 @@ const Login = () => {
       const user = userCredential.user;
       alert("Login successful!");
       navigate("/dashboard");
-
       console.log(user);
-      // Redirect to dashboard or set auth state
     } catch (error) {
       alert("Login failed: " + error.message);
       console.error(error);
@@ -34,16 +29,19 @@ const Login = () => {
 
   return (
     <div className="login-container">
+      {/* Logo */}
       <div className="login-logo">
-      <Link to="/" className="logo-link">
+        <Link to="/" className="logo-link">
           <img src="src/assets/logo.png" className="logo-icon" />
         </Link>
       </div>
 
+      {/* Login Card */}
       <div className="login-card">
         <h2 className="login-title">Login to your account</h2>
         <p className="login-subtitle">Enter your email and password to access your dashboard</p>
 
+        {/* Login Form */}
         <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
             <div className="input-wrapper">
@@ -80,6 +78,7 @@ const Login = () => {
             </div>
           </div>
 
+          {/* Remember Me and Forgot Password */}
           <div className="form-row">
             <label className="checkbox-label">
               <input
@@ -89,12 +88,13 @@ const Login = () => {
               />
               Remember me
             </label>
-
             <Link to="/forgot-password" className="forgot-link">Forgot password?</Link>
           </div>
 
+          {/* Submit Button */}
           <button type="submit" className="login-button">Login</button>
 
+          {/* Sign Up Redirect */}
           <div className="signup-text">
             Don’t have an account? <Link to="/signup" className="signup-link">Sign up</Link>
           </div>

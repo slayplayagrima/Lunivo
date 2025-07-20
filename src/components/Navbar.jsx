@@ -1,37 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../styles/Navbar.css";
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <nav>
       <div className="navbar-container">
         <div className="navbar-left">
-          <Link to="/home">
-          <img src={logo} alt="Lunivo Logo" className="logo" />
+          <Link to="/home" onClick={closeMenu}>
+            <img src={logo} alt="Lunivo Logo" className="logo" />
           </Link>
         </div>
 
-        <div className="navbar-links">
-         <Link to="/dashboard">Dashboard</Link> 
-          <Link to="/portfolio">Portfolio</Link>
-          <Link to="/blog"> 
-            Blog
-          </Link>
-          <a href="/market">Markets</a>
-          <Link to="/support">
-         Support
-          </Link>
-          
+        <div className="hamburger-icon" onClick={toggleMenu}>
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </div>
 
-        <div className="navbar-buttons">
-        <Link to="/login">
-          <button className="btn-login">Log In</button>
+        <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
+          <Link to="/dashboard" onClick={closeMenu}>Dashboard</Link>
+          <Link to="/portfolio" onClick={closeMenu}>Portfolio</Link>
+          <Link to="/blog" onClick={closeMenu}>Blog</Link>
+          <a href="/market" onClick={closeMenu}>Markets</a>
+          <Link to="/support" onClick={closeMenu}>Support</Link>
+        </div>
+
+        <div className={`navbar-buttons ${menuOpen ? 'active' : ''}`}>
+          <Link to="/login" onClick={closeMenu}>
+            <button className="btn-login">Log In</button>
           </Link>
-          <Link to="/signup">
-          <button className="btn-signup">Sign Up</button>
+          <Link to="/signup" onClick={closeMenu}>
+            <button className="btn-signup">Sign Up</button>
           </Link>
         </div>
       </div>

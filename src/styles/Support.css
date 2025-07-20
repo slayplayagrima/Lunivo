@@ -1,70 +1,37 @@
-
-/* Target ALL MUI Cards */
-.MuiPaper-root.MuiCard-root {
-  background-color: rgba(17, 24, 39, 0.8);;  /* Dark background */
-  color: #f9fafb !important; /* Default text color inside */
-}
-
-/* Make sure paragraphs in Card use your desired text color */
-.MuiPaper-root.MuiCard-root p {
-  color: #bdd1ec !important;
-}
-
-/* If using Typography variant body2 or others, be specific */
-.MuiPaper-root.MuiCard-root .MuiTypography-body2 {
-  color: #bdd1ec !important;
-}
-
-/* Buttons inside Card */
-.MuiPaper-root.MuiCard-root .MuiButton-contained {
-  background-color: hsl(204, 88%, 66%) !important;
-  color: #fff !important;
-}
-
-.MuiPaper-root.MuiCard-root .MuiButton-contained:hover {
-  background-color: rgba(54, 70, 74, 0.321)!important;
-}
-
-.MuiAlert-root .MuiAlert-icon {
-  color: hsl(204, 88%, 66%) !important;  /* optional: icon color */
-}
-
-
-/* === Global === */
+/* Global */
 * {
   scroll-behavior: smooth;
   box-sizing: border-box;
 }
 
-/* === Container === */
+/* Container */
 .support-container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
-/* === Header === */
+/* Header */
 .support-header {
   text-align: center;
   margin: 11rem 0 9rem;
-  color:linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);;
+  color: linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);
 }
 
 .support-header h1 {
   font-size: 4rem;
-  color:linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);
+  color: linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);
   margin-bottom: 0.5rem;
   background: linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-
 .support-subheading {
   color: #bdd1ec;
 }
 
-/* === Support Channels === */
+/* Support Channels */
 .support-channels {
   display: flex;
   flex-wrap: wrap;
@@ -99,8 +66,7 @@
   color: #fff;
 }
 
-
-/* === Sections Wrapper === */
+/* Sections */
 .support-sections {
   display: flex;
   flex-wrap: wrap;
@@ -114,17 +80,18 @@
   flex: 1 1 400px;
   max-width: 550px;
 }
-.support-form-header{
+
+.support-form-header {
   font-weight: 80;
   font-size: 19px;
   text-align: center;
   padding-bottom: 1rem;
-  color:white;
+  color: white;
 }
 
-/* === Form Card === */
+/* Form */
 .support-form-card {
-  background-color: rgba(17, 24, 39, 0.8);;
+  background-color: rgba(17, 24, 39, 0.8);
   color: #ffffff;
   border: 1px solid #374151;
   border-radius: 8px;
@@ -132,7 +99,6 @@
   max-width: 550px;
 }
 
-/* === Form Structure === */
 .support-form {
   display: flex;
   flex-direction: column;
@@ -140,22 +106,22 @@
 
 .support-form-row {
   display: flex;
-  flex-direction: column; /* <- STACK name + email vertically */
-  gap: 0; /* Remove row gap; use field margin instead */
+  flex-direction: column;
+  gap: 0;
 }
 
 .support-form-field {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem; /* tighter spacing between fields */
+  margin-bottom: 2rem;
 }
 
 .support-form-field:last-child {
-  margin-bottom: 0; /* no margin after last field */
+  margin-bottom: 0;
 }
 
 .support-form-field label {
-  margin-bottom: 0.5rem; /* tighter label spacing */
+  margin-bottom: 0.5rem;
   color: #fff;
   font-weight: 600;
 }
@@ -172,14 +138,16 @@
   box-sizing: border-box;
   margin: 0;
 }
-.support-form-field-category{
+
+.support-form-field-category {
   margin-top: 2rem;
 }
+
 .support-form-field textarea {
-  width: 100%;           /* Makes sure it fills parent, or adjust as needed */
-  min-height: 120px;     /* Minimum height */
-  max-height: 200px;     /* Maximum height if you want to limit it */
-  resize: vertical;      /* Allow vertical resize only, or use 'none' to disable */
+  width: 100%;
+  min-height: 120px;
+  max-height: 200px;
+  resize: vertical;
 }
 
 .support-form-button {
@@ -196,19 +164,17 @@
   background-color: rgba(54, 70, 74, 0.321);
 }
 
-
-/* === Alert === */
+/* Alert */
 .support-alert {
   flex: 1 1 100%;
-  max-width: calc(550px * 2 + 2rem); /* 2 cards + 2rem gap */
+  max-width: calc(550px * 2 + 2rem);
   color: #bdd1ec;
   padding: 1rem 2rem;
   border-radius: 6px;
   margin-top: 1rem;
 }
 
-
-/* === Categories === */
+/* Categories */
 .support-categories-card {
   background-color: rgba(54, 70, 74, 0.321);
   color: #f9fafb;
@@ -216,26 +182,26 @@
   border-radius: 8px;
   padding: 2rem;
 }
-.support-categories-card :last-child{
+
+.support-categories-card :last-child {
   margin-bottom: 1.75px;
 }
 
 .support-category {
-  background-color: rgba(54, 70, 74, 0.321); /* same dark background */
+  background-color: rgba(54, 70, 74, 0.321);
   border: 1px solid #374151;
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;
 }
 
-/* Target the CardHeader title inside your support-categories-card */
 .support-categories-card .MuiCardHeader-title {
   text-align: center;
   padding-top: 0.5rem;
   padding-bottom: 1rem;
-  font-weight: 600;  /* Make it bold */
-  font-size: 1.7rem; /* Optional: make it bigger */
-  color: #fff;    /* Optional: ensure it’s your light text color */
+  font-weight: 600;
+  font-size: 1.7rem;
+  color: #fff;
 }
 
 .support-category-header {
@@ -281,22 +247,20 @@
   text-decoration: underline;
 }
 
-/* === FAQ Container === */
+/* FAQ */
 .support-faq {
   max-width: 1250px;
   margin: 0 auto 6rem;
 }
 
-/* FAQ Card background and style */
 .support-faq-card {
-  background-color: rgba(54, 70, 74, 0.321); /* matches your dark card theme */
+  background-color: rgba(54, 70, 74, 0.321);
   color: #f9fafb;
   border: 1px solid #374151;
   border-radius: 8px;
   padding: 2rem;
 }
 
-/* FAQ Card Header Title */
 .support-faq-card .MuiCardHeader-title {
   text-align: center;
   font-weight: 600;
@@ -305,9 +269,8 @@
   color: #fff;
 }
 
-/* Individual FAQ Item */
 .faq-item {
-  background-color: rgba(54, 70, 74, 0.321); /* darker contrast inside card */
+  background-color: rgba(54, 70, 74, 0.321);
   color: #ffffff;
   border: 1px solid #374151;
   border-radius: 8px;
@@ -315,7 +278,6 @@
   overflow: hidden;
 }
 
-/* Accordion Summary (Question Row) */
 .faq-item .MuiAccordionSummary-root {
   padding: 0 1.25rem;
   font-weight: 600;
@@ -323,34 +285,55 @@
   color: white;
 }
 
-/* Expand icon color */
 .faq-item .MuiSvgIcon-root {
   color: hsl(204, 88%, 66%);
 }
 
-/* Accordion Details (Answer) */
 .faq-item .MuiAccordionDetails-root {
   padding: 1rem 1.5rem;
   background: #0f172a;
   color: #fff;
 }
 
-/* Optional: Hover effect for question row */
 .faq-item .MuiAccordionSummary-root:hover {
   background-color: hsl(204, 88%, 66%);
   cursor: pointer;
-  color:white;
+  color: white;
 }
-/* Force text color inside MUI Typography in Summary and Details */
+
 .faq-item .MuiAccordionSummary-root .MuiTypography-root {
-  color: #fff !important;   /* force question text white */
+  color: #fff !important;
 }
 
 .faq-item .MuiAccordionDetails-root .MuiTypography-root {
-  color: #bdd1ec !important; /* force answer text light blue */
+  color: #bdd1ec !important;
 }
 
-/* === Responsive === */
+/* MUI Cards and Buttons */
+.MuiPaper-root.MuiCard-root {
+  background-color: rgba(17, 24, 39, 0.8);
+  color: #f9fafb !important;
+}
+
+.MuiPaper-root.MuiCard-root p,
+.MuiPaper-root.MuiCard-root .MuiTypography-body2 {
+  color: #bdd1ec !important;
+}
+
+.MuiPaper-root.MuiCard-root .MuiButton-contained {
+  background-color: hsl(204, 88%, 66%) !important;
+  color: #fff !important;
+}
+
+.MuiPaper-root.MuiCard-root .MuiButton-contained:hover {
+  background-color: rgba(54, 70, 74, 0.321) !important;
+}
+
+.MuiAlert-root .MuiAlert-icon {
+  color: hsl(204, 88%, 66%) !important;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .support-header h1 {
     font-size: 2.5rem;

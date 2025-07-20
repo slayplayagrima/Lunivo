@@ -1,6 +1,4 @@
-/* ================================
-   GLOBAL CONTAINER & TYPOGRAPHY
-=================================*/
+/* GLOBAL CONTAINER & TYPOGRAPH*/
 .portfolio-container {
     padding: 4rem;
     background-color: #061527;
@@ -31,9 +29,7 @@
     margin-top: 0rem;
   }
   
-  /* ================================
-     SUMMARY CARDS SECTION
-  =================================*/
+  /* SUMMARY CARDS SECTION*/
   .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -91,9 +87,7 @@
     font-size: 0.75rem;
   }
   
-  /* ================================
-     CHARTS SECTION
-  =================================*/
+  /* CHARTS SECTION*/
   .charts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -121,9 +115,7 @@
     margin-top: 1rem;
   }
   
-  /* ================================
-     COLORS AND UTILITY CLASSES
-  =================================*/
+  /* COLORS AND UTILITY CLASSES*/
   .green {
     color: #4ade80;
   }

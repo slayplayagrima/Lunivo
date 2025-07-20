@@ -1,6 +1,4 @@
-/* ================================
-   1. ROOT LAYOUT
-   ================================ */
+/* ROOT LAYOUT */
 
    .market-container {
     padding: 4rem;
@@ -9,9 +7,7 @@
     min-height: 100vh;
   }
   
-  /* ================================
-     2. PAGE HEADINGS & TEXT
-     ================================ */
+  /* PAGE HEADINGS & TEXT */
   
      .market-heading {
         text-align: center;
@@ -33,9 +29,7 @@
     padding-bottom: 8rem;
   }
   
-  /* ================================
-     3. MARKET STATUS BAR
-     ================================ */
+  /* MARKET STATUS BAR */
   
   .status-bar {
     background: #0f172a;
@@ -78,9 +72,7 @@
     font-size: 0.85rem;
     color: #bdd1ec;
   }
-    /* ================================
-     7. OVERVIEW CARDS SECTION
-     ================================ */
+    /* OVERVIEW CARDS SECTION */
   
      .overview-cards {
         display: flex;
@@ -98,9 +90,7 @@
       }
       
   
-  /* ================================
-     5. OVERVIEW SECTION
-     ================================ */
+  /* OVERVIEW SECTION */
   
   .overview-content {
     display: flex;
@@ -124,9 +114,7 @@
     padding:1rem;
   }
   
-  /* ================================
-     6. MARKET STATISTICS CARDS
-     ================================ */
+  /* MARKET STATISTICS CARDS*/
   
   .market-stats {
     display: flex;
@@ -149,9 +137,7 @@
   }
   
 
-  /* ================================
-     8. STOCK TABLE SECTION
-     ================================ */
+  /* STOCK TABLE SECTION */
   
   .stock-market-section {
     margin-top: 0rem;
@@ -191,9 +177,7 @@
     text-align: center;
   }
   
-  /* ================================
-     9. SECTOR TAGS
-     ================================ */
+  /* SECTOR TAGS */
   
   .sector-tag {
     background-color: #2d3748;
@@ -205,9 +189,7 @@
     text-align: center;
   }
   
-  /* ================================
-     10. COLOR UTILITIES
-     ================================ */
+  /* COLOR UTILITIES */
   
   .positive {
     color: #22c55e;
@@ -216,4 +198,57 @@
   .negative {
     color: #ef4444;
   }
-  
+
+/* Mobile menu layout */
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 8px;
+  }
+
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 10px;
+  }
+
+  .navbar-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .navbar-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .navbar-buttons {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .navbar-buttons button {
+    width: 48%;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+  .navbar-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-buttons button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .navbar-left .logo {
+    height: 36px;
+  }
+}

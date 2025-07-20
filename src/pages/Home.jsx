@@ -259,7 +259,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* === HOW IT WORKS === */}
+      {/* HOW IT WORKS */}
 <section className="howitworks-section">
   <div className="howitworks-container">
     <div className="howitworks-header">

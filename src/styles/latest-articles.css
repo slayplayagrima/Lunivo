@@ -1,4 +1,4 @@
-/* ============= LATEST ARTICLES SECTION ============= */
+/*LATEST ARTICLES SECTION*/
 
 .articles-section {
     padding: 4rem 0;
@@ -32,7 +32,7 @@
     color: #fff;
   }
   
-  /* ============= CATEGORY TABS ============= */
+  /*CATEGORY TABS*/
   
   .category-tabs {
     margin-bottom: 2rem;
@@ -100,7 +100,7 @@
     }
   }
   
-  /* ============= ARTICLES GRID ============= */
+  /*ARTICLES GRID*/
   
   .articles-grid {
     display: grid;
@@ -120,7 +120,7 @@
     }
   }
   
-  /* ============= ARTICLE CARD ============= */
+  /*ARTICLE CARD*/
   
   .article-card {
     background: #fff;
@@ -169,7 +169,7 @@
     border-radius: 4px;
   }
   
-  /* ============= ARTICLE CONTENT ============= */
+  /*ARTICLE CONTENT*/
   
   .article-content {
     padding: 1rem;
@@ -227,7 +227,7 @@
     transform: translateX(4px);
   }
   
-  /* ============= EMPTY STATE ============= */
+  /*EMPTY STATE*/
   
   .articles-empty {
     text-align: center;
@@ -236,7 +236,7 @@
     font-size: 1rem;
   }
   
-  /* ============= BASIC ANIMATION ============= */
+  /*BASIC ANIMATION*/
   
   .article-card {
     opacity: 0;
@@ -251,7 +251,7 @@
     }
   }
   
-  /* ============= SMALL SCREENS ============= */
+  /*SMALL SCREENS*/
   
   @media (max-width: 640px) {
     .tabs-list {

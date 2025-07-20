@@ -25,7 +25,8 @@ export default function Blog() {
     {
       id: 2,
       title: "ESG Investing: Aligning Values with Returns",
-      excerpt: "How sustainable investing is consistently delivering both meaningful positive impact and competitive long-term financial performance across global markets.",
+      excerpt:
+        "How sustainable investing is consistently delivering both meaningful positive impact and competitive long-term financial performance across global markets.",
       category: "Sustainable Finance",
       image: "src/assets/card2.png",
       author: "Emma Thompson",
@@ -152,10 +153,6 @@ export default function Blog() {
       readTime: "5 min read",
       featured: false,
     },
-    
-    
-    
-    
   ];
 
   const formatDate = (dateString) =>
@@ -196,9 +193,7 @@ export default function Blog() {
     <>
       <Navbar />
 
-      {/* ===========================
-          HERO SECTION
-      ============================ */}
+      {/* HERO SECTION */}
       <div className="hero-container">
         <h1 className="hero-title">Lunivo Insights</h1>
         <p className="hero-description">
@@ -207,9 +202,7 @@ export default function Blog() {
         </p>
       </div>
 
-      {/* ===========================
-          INSIGHTS CARDS SECTION
-      ============================ */}
+      {/* INSIGHTS SECTION */}
       <section className="insights-section">
         <div className="container">
           <div className="insights-grid">
@@ -234,9 +227,7 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* ===========================
-          FEATURED ARTICLE SECTION
-      ============================ */}
+      {/* FEATURED ARTICLE SECTION */}
       {featuredPost && (
         <section className="featured-article">
           <div className="container">
@@ -247,7 +238,6 @@ export default function Blog() {
 
             <div className="featured-card">
               <div className="featured-grid">
-                {/* Featured Image */}
                 <div className="featured-image-wrapper">
                   <img
                     src={featuredPost.image}
@@ -258,46 +248,15 @@ export default function Blog() {
                   <span className="badge featured-badge">Featured</span>
                 </div>
 
-                {/* Featured Content */}
                 <div className="featured-content">
                   <span className="badge badge-outline">{featuredPost.category}</span>
                   <h3>{featuredPost.title}</h3>
                   <p>{featuredPost.excerpt}</p>
 
                   <div className="meta-info">
-                    <span>
-                      <svg className="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                        />
-                      </svg>
-                      {featuredPost.author}
-                    </span>
-                    <span>
-                      <svg className="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
-                      {formatDate(featuredPost.date)}
-                    </span>
-                    <span>
-                      <svg className="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                      {featuredPost.readTime}
-                    </span>
+                    <span>{featuredPost.author}</span>
+                    <span>{formatDate(featuredPost.date)}</span>
+                    <span>{featuredPost.readTime}</span>
                   </div>
 
                   <button className="read-more">
@@ -318,15 +277,13 @@ export default function Blog() {
         </section>
       )}
 
-      {/* ===========================
-          LATEST ARTICLES SECTION
-      ============================ */}
+      {/* LATEST ARTICLES SECTION */}
       <LatestArticles
         posts={filteredPosts}
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
       />
-      <Footer/>
+      <Footer />
     </>
   );
 }

@@ -37,7 +37,6 @@ const SignUp = () => {
       navigate("/dashboard");
 
       console.log(user);
-      // Redirect or set auth state
     } catch (error) {
       alert("Signup failed: " + error.message);
       console.error(error);

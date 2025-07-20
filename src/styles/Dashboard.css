@@ -175,4 +175,62 @@ body {
     top: 8px;
     color:white !important;
   }
-
+  @media screen and (max-width: 1024px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .charts-section {
+      flex-direction: column;
+    }
+  
+    .chart-card {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .dashboard {
+      padding: 10px 15px;
+    }
+  
+    .header div {
+      font-size: 2.2rem;
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+    }
+  
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  
+    .actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .chart-card {
+      padding: 15px;
+    }
+  
+    .holdings-table h3 {
+      font-size: 1.5rem;
+    }
+  
+    table th, table td {
+      padding: 8px;
+      font-size: 0.9rem;
+    }
+  
+    .close-btn {
+      left: auto;
+      right: 1rem;
+    }
+  
+    .dialog-box .MuiDialog-paper {
+      min-width: auto !important;
+      width: 90%;
+    }
+  }
+  

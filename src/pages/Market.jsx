@@ -1,25 +1,23 @@
-// =================== Imports ===================
 import React, { useState, useEffect } from 'react';
 import {
-  Box, Typography, Tabs, Tab, TextField, Button, Card, CardContent
+  Box, Typography, Card, CardContent
 } from '@mui/material';
-import { Search, RefreshCw, Filter } from 'lucide-react';
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell
 } from 'recharts';
 
-import '../styles/Market.css'; // custom styling
+import '../styles/Market.css';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
-// =================== Component ===================
+// Component
 export default function Market() {
-  // -------------------- State Variables --------------------
-  const [marketOpen, setMarketOpen] = useState(true); // market status
-  const [countdown, setCountdown] = useState(''); // live countdown to close
+  // State Variables
+  const [marketOpen, setMarketOpen] = useState(true);
+  const [countdown, setCountdown] = useState('');
 
-  // -------------------- Market Close Timer --------------------
+  // Market Close Timer
   useEffect(() => {
     const closeTime = new Date();
     closeTime.setHours(15, 30, 0);
@@ -42,8 +40,7 @@ export default function Market() {
     return () => clearInterval(interval);
   }, []);
 
-
-  // -------------------- Sample Chart Data --------------------
+  // Sample Chart Data
   const lineChartData = [
     { time: '9:30', price: 4177 },
     { time: '10:00', price: 4180 },
@@ -62,46 +59,44 @@ export default function Market() {
     { name: 'Consumer', value: 100 },
     { name: 'Auto', value: 100 },
   ];
+
   const sectorColors = ['#00C49F', '#FFBB28', '#0088FE', '#FF8042', '#845EC2', '#4BC0C0'];
 
-  // -------------------- Overview Stats --------------------
+  // Overview Stats
   const overviewCards = [
     {
       title: 'S&P 500', symbol: 'SPX', value: '4,185.47',
-      change: '+12.34', percent: '+0.30%', changeColor: '#22c55e', direction: 'up',
+      change: '+12.34', percent: '+0.30%', changeColor: '#22c55e',
       high: '4,195.22', low: '4,168.15', volume: '3.2B',
     },
     {
       title: 'NASDAQ', symbol: 'IXIC', value: '12,888.28',
-      change: '-23.45', percent: '-0.18%', changeColor: '#ef4444', direction: 'down',
+      change: '-23.45', percent: '-0.18%', changeColor: '#ef4444',
       high: '12,920.45', low: '12,866.33', volume: '4.1B',
     },
     {
       title: 'DOW JONES', symbol: 'DJI', value: '33,745.69',
-      change: '+45.67', percent: '+0.14%', changeColor: '#22c55e', direction: 'up',
+      change: '+45.67', percent: '+0.14%', changeColor: '#22c55e',
       high: '33,782.11', low: '33,689.65', volume: '415M',
     },
     {
       title: 'RUSSELL 2000', symbol: 'RUT', value: '1,789.12',
-      change: '-8.90', percent: '-0.49%', changeColor: '#ef4444', direction: 'down',
+      change: '-8.90', percent: '-0.49%', changeColor: '#ef4444',
       high: '1,801.23', low: '1,776.88', volume: '892M',
     },
   ];
 
-  // =================== JSX Return ===================
+  // JSX Return
   return (
     <>
       <Navbar />
 
-      {/* ----------- Container ----------- */}
       <Box className="market-container">
-        {/* Header */}
         <Typography variant="h2" className="market-heading">Markets Overview</Typography>
         <Typography variant="subtitle1" className="market-subtext">
           Real-time market data and comprehensive analysis
         </Typography>
 
-        {/* Market Status Bar */}
         <Box className="status-bar">
           <Box className={`market-status ${marketOpen ? 'open' : 'closed'}`}>
             <span className="status-dot" />
@@ -113,18 +108,20 @@ export default function Market() {
           </Typography>
         </Box>
 
-
-        {/* ----------- Overview Cards ----------- */}
         <Box className="overview-cards">
           {overviewCards.map((item) => (
             <Card key={item.title} className="overview-card">
               <CardContent>
-                <Typography sx={{color:"#bdd1ec", fontSize:"0.7rem",paddingBottom:"1rem"}} variant="subtitle1" color="textSecondary">{item.title}</Typography>
-                <Typography sx={{paddingBottom:"0.5rem"}} variant="h5">{item.value}</Typography>
+                <Typography sx={{ color: "#bdd1ec", fontSize: "0.7rem", paddingBottom: "1rem" }} variant="subtitle1">
+                  {item.title}
+                </Typography>
+                <Typography sx={{ paddingBottom: "0.5rem" }} variant="h5">
+                  {item.value}
+                </Typography>
                 <Typography style={{ color: item.changeColor }}>
                   {item.change} ({item.percent})
                 </Typography>
-                <Typography sx={{}} variant="caption">
+                <Typography variant="caption">
                   High: {item.high} • Low: {item.low} • Volume: {item.volume}
                 </Typography>
               </CardContent>
@@ -132,9 +129,7 @@ export default function Market() {
           ))}
         </Box>
 
-        {/* ----------- Charts (Line & Pie) ----------- */}
         <Box className="overview-content">
-          {/* Line Chart */}
           <Box className="chart-card">
             <Typography variant="h6" className="chart-title">S&P 500 Today</Typography>
             <ResponsiveContainer width="100%" height={200}>
@@ -147,7 +142,6 @@ export default function Market() {
             </ResponsiveContainer>
           </Box>
 
-          {/* Pie Chart */}
           <Box className="sector-card">
             <Typography variant="h6" className="chart-title">Sector Performance</Typography>
             <ResponsiveContainer width="100%" height={200}>
@@ -167,7 +161,6 @@ export default function Market() {
           </Box>
         </Box>
 
-        {/* ----------- Market Stats ----------- */}
         <Box className="market-stats">
           <Box className="stat-card">
             <Typography variant="subtitle2">$45.2T</Typography>
@@ -188,17 +181,36 @@ export default function Market() {
         </Box>
       </Box>
 
-      {/* ----------- Stock Table ----------- */}
       <Box className="stock-market-section">
-        <Typography variant="h6" sx={{ marginBottom: 2 ,marginTop:"0rem", paddingTop:"0rem", fontSize:"2rem", textAlign:"center", fontWeight:"500", paddingBottom:"2rem", }}>Stock Market</Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            marginBottom: 2,
+            marginTop: "0rem",
+            paddingTop: "0rem",
+            fontSize: "2rem",
+            textAlign: "center",
+            fontWeight: "500",
+            paddingBottom: "2rem"
+          }}
+        >
+          Stock Market
+        </Typography>
+
         <Box className="stock-table">
           <Box className="table-header">
-            <span>Symbol</span><span>Company</span><span>Sector</span><span>Price</span>
-            <span>Change</span><span>% Change</span><span>High</span><span>Low</span>
-            <span>Volume</span><span>Market Cap</span>
+            <span>Symbol</span>
+            <span>Company</span>
+            <span>Sector</span>
+            <span>Price</span>
+            <span>Change</span>
+            <span>% Change</span>
+            <span>High</span>
+            <span>Low</span>
+            <span>Volume</span>
+            <span>Market Cap</span>
           </Box>
 
-          {/* Hardcoded stocks – replace with API later */}
           {[
             {
               symbol: "AAPL", company: "Apple Inc.", sector: "Technology",

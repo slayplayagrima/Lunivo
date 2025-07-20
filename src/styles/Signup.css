@@ -1,7 +1,7 @@
-/* === Root === */
+/*Root*/
 
   
-  /* === Page Container === */
+  /*Page Container*/
   .signup-page {
     height: 100vh; /* Fixed viewport height */
     display: flex;
@@ -12,7 +12,7 @@
     overflow: hidden;
   }
   
-  /* === Logo === */
+  /*Logo*/
   .signup-logo {
     position: absolute;
     top: 0.5rem;
@@ -33,7 +33,7 @@
     
   }
   
-  /* === Card === */
+  /*Card*/
   .signup-card {
     background-color: hsl(222, 47%, 13%);
     border: 1px solid #374151;
@@ -46,7 +46,7 @@
     overflow-y: auto; /* Only scroll inside card if needed */
   }
   
-  /* === Card Header === */
+  /*Card Header*/
   .signup-header h2 {
     text-align: center;
     margin: 0 0 0.5rem;
@@ -60,7 +60,7 @@
     margin: 0;
   }
   
-  /* === Form === */
+  /*Form*/
   .signup-form {
     margin-top: 1.5rem;
     display: flex;
@@ -113,7 +113,7 @@
     color: hsl(210, 40%, 98%);
   }
   
-  /* === Terms === */
+  /*Terms*/
   .terms {
     display: flex;
     align-items: flex-start;
@@ -134,7 +134,7 @@
     text-decoration: underline;
   }
   
-  /* === Submit Button === */
+  /*Submit Button*/
   .submit-btn {
     width: 100%;
     padding: 0.75rem;
@@ -151,7 +151,7 @@
     background: hsl(204, 43%, 39%);
   }
   
-  /* === Sign In Link === */
+  /*Sign In Link*/
   .signin-link {
     text-align: center;
     font-size: 0.875rem;
@@ -162,7 +162,7 @@
     margin-left: 0.25rem;
   }
   
-  /* === Responsive === */
+  /*Responsive*/
   @media (max-width: 600px) {
     .form-row {
       flex-direction: column; /* Stack first and last name vertically on small screens */

@@ -1,12 +1,11 @@
-/* Base Navbar styling */
 nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color:#061527; /* Dark background */
-  border-bottom: 1px solid #1e293b; /* Subtle bottom border */
+  background-color: #061527;
+  border-bottom: 1px solid #1e293b;
   z-index: 1000;
-  padding: 8px 16px; /* Reduce padding to make it more compact */
+  padding: 8px 16px;
 }
 
 .navbar-container {
@@ -15,7 +14,7 @@ nav {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  height: 40px; /* Adjusted height */
+  height: 40px;
 }
 
 .navbar-left {
@@ -23,13 +22,15 @@ nav {
   align-items: center;
 }
 
-.navbar-left .logo {
-  height: 80px; /* Reduced logo size */
+.logo {
+  height: 80px;
   width: auto;
   object-fit: contain;
 }
 
-.navbar-links {
+/* Links and Buttons */
+.navbar-links,
+.navbar-buttons {
   display: flex;
   align-items: center;
   gap: 32px;
@@ -38,24 +39,18 @@ nav {
 .navbar-links a {
   padding: 8px 12px;
   border-radius: 6px;
-  transition: background-color 0.2s ease;
   text-decoration: none;
-  color: #bdd1ec; /* Light slate color for text */
+  color: #bdd1ec;
+  transition: background-color 0.2s ease;
 }
 
 .navbar-links a:hover {
-  background-color:rgba(100, 116, 139, 0.2)
-}
-
-/* Button Styling */
-.navbar-buttons {
-  display: flex;
-  gap: 12px;
+  background-color: rgba(100, 116, 139, 0.2);
 }
 
 .navbar-buttons button {
-  padding: 6px 12px; /* Reduced button padding */
-  font-size: 13px; /* Smaller font size */
+  padding: 6px 12px;
+  font-size: 13px;
   font-weight: 600;
   border: none;
   cursor: pointer;
@@ -63,7 +58,7 @@ nav {
   transition: background-color 0.3s;
 }
 
-/* Log In Button */
+/* Buttons */
 .btn-login {
   background-color: transparent;
   color: white;
@@ -72,49 +67,67 @@ nav {
 
 .btn-login:hover {
   background-color: hsl(204, 88%, 66%);
-  color: white;
   color: #0f172a;
 }
 
-/* Sign Up Button */
 .btn-signup {
   background-color: hsl(204, 88%, 66%);
   color: white;
 }
 
 .btn-signup:hover {
-  background-color: #3d4b60; /* Darker purple */
+  background-color: #3d4b60;
 }
 
-/* Responsive styles */
+/* Hamburger Icon  */
+.hamburger-icon {
+  display: none;
+  cursor: pointer;
+  color: white;
+}
+
+/* Responsive Styles */
 @media screen and (max-width: 1024px) {
-  .navbar-container {
-    padding: 8px 16px;
+  .logo {
+    height: 60px;
   }
 
   .navbar-links {
     gap: 20px;
   }
-
-  .navbar-left .logo {
-    height: 45px; /* Adjust logo size for smaller screens */
-  }
-
-  .navbar-buttons {
-    gap: 10px;
-  }
 }
 
 @media screen and (max-width: 768px) {
   .navbar-container {
-    padding: 8px 16px;
+    flex-wrap: wrap;
+    height: auto;
   }
 
-  .navbar-left .logo {
-    height: 40px; /* Adjust logo size for mobile screens */
+  .logo {
+    height: 40px;
   }
 
-  .navbar-links {
+  .hamburger-icon {
+    display: block;
+  }
+
+  .navbar-links,
+  .navbar-buttons {
+    display: none;
+    flex-direction: column;
     gap: 16px;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .navbar-links.active,
+  .navbar-buttons.active {
+    display: flex;
+  }
+
+  .navbar-links a,
+  .navbar-buttons button {
+    width: 100%;
   }
 }
