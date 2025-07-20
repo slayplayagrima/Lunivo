@@ -7,6 +7,7 @@ import Blog from './pages/Blog';
 import Support from './pages/Support';
 import Market from './pages/Market';
 import Dashboard from './pages/Dashboard';
+import Portfolio from './pages/Portfolio';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/home" element={<Home/>}/>
         <Route path="/market" element={<Market/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/portfolio" element={<Portfolio/>}/>
       </Routes>
     </Router>
   );

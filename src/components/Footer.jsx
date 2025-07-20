@@ -13,8 +13,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="footer-brand">
             <Link to="/" className="footer-logo">
-              <BarChart className="footer-logo-icon" />
-              <span className="footer-logo-text">Lunivo</span>
+             <div style={{marginBottom:"0",fontSize:"1.5rem", textAlign:"center",color:"hsl(204, 88%, 66%)",fontWeight:"bold"}}>Lunivo</div>
             </Link>
             <p className="footer-description">
               Track, analyze, and grow your investments with our intuitive platform designed for modern investors.
@@ -27,7 +26,7 @@ const Footer = () => {
             <ul className="footer-links">
               <li><Link to="/dashboard">Dashboard</Link></li>
               <li><Link to="/portfolio">Portfolio</Link></li>
-              <li><Link to="/markets">Markets</Link></li>
+              <li><Link to="/market">Markets</Link></li>
               <li><Link to="/blog">Blog</Link></li>
             </ul>
           </div>

@@ -1,0 +1,142 @@
+/* ================================
+   GLOBAL CONTAINER & TYPOGRAPHY
+=================================*/
+.portfolio-container {
+    padding: 4rem;
+    background-color: #061527;
+    color: white;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .portfolio-header {
+    text-align: center;
+    margin-top: 7rem;
+    margin-bottom: 10rem;
+  }
+  
+  .portfolio-title {
+    font-size: 4rem;
+    background: linear-gradient(90deg, #75a7f8, #6384f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+  }
+  
+  .portfolio-subtext {
+    color: #bdd1ec;
+    font-size: 0.95rem;
+    margin-top: 0rem;
+  }
+  
+  /* ================================
+     SUMMARY CARDS SECTION
+  =================================*/
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 6rem;
+  }
+  
+  .portfolio-card {
+    background-color: #0f172a;
+    padding: 1rem 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0 0 1px #2d3748;
+    transition: 0.2s ease;
+    text-align: center;
+  }
+  
+  .card-label {
+    font-size: 0.875rem;
+    color: #bdd1ec;
+    margin-bottom: 0rem;
+  }
+  
+  .card-value {
+    font-size: 2rem;
+    margin-bottom: 0;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  
+  .card-change {
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+  
+  .card-change.green {
+    color: #4ade80;
+  }
+  
+  .card-change.red {
+    color: #f87171;
+  }
+  
+  .card-breakdown {
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    color: #cbd5e1;
+  }
+  
+  .badge {
+    background-color: rgba(54, 70, 74, 0.321);
+    color: #e2e8f0;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+  }
+  
+  /* ================================
+     CHARTS SECTION
+  =================================*/
+  .charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .chart-card {
+    background-color:#0f172a;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0 0 1px #334155;
+    margin-bottom: 2rem;
+  }
+  
+  .chart-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 4rem;
+    color: #ffffff;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  /* ================================
+     COLORS AND UTILITY CLASSES
+  =================================*/
+  .green {
+    color: #4ade80;
+  }
+  
+  .red {
+    color: #f87171;
+  }
+  
+  .blue {
+    color: #60a5fa;
+  }
+  
+  .bold {
+    font-weight: 600;
+  }
+  

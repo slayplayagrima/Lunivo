@@ -22,9 +22,10 @@ const Home = () => {
         </p>
 
         <div className="home-buttons">
-          <button className="primary-btn">
+          <Link to="/signup"><button className="primary-btn">
             Get Started – It's Free <span className="arrow">→</span>
-          </button>
+          </button></Link>
+
           <button className="secondary-btn">View Demo</button>
         </div>
 
