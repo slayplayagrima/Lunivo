@@ -3,13 +3,15 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: 'YOUR_API_KEY',
-  authDomain: 'YOUR_AUTH_DOMAIN',
-  projectId: 'YOUR_PROJECT_ID',
-  storageBucket: 'YOUR_STORAGE_BUCKET',
-  messagingSenderId: 'YOUR_MSG_ID',
-  appId: 'YOUR_APP_ID',
+  apiKey: 'AIzaSyB1LGJ4JwFX-IYVC_S7xEkeelSEJeHBJ8g',
+  authDomain: 'lunivofirebase.firebaseapp.com',
+  projectId: 'lunivofirebase',
+  storageBucket: 'lunivofirebase.firebasestorage.app',
+  messagingSenderId: '463837496973',
+  appId: '1:463837496973:web:9c6cbff1dacc3c430d84c4',
+  measurementId:'G-Y1FG3GDBJZ'
 };
-
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const auth = getAuth(app);
+
+export { auth };

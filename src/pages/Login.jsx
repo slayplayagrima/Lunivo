@@ -3,18 +3,33 @@ import { Link } from 'react-router-dom';
 import { Eye, EyeOff, LogIn, User } from 'lucide-react';
 import "../styles/Login.css";
 import "../styles/Login.css";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+import { useNavigate } from 'react-router-dom';
+
 
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Login simulated. Connect backend for real login.");
-    console.log({ email, password, rememberMe });
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      alert("Login successful!");
+      navigate("/dashboard");
+
+      console.log(user);
+      // Redirect to dashboard or set auth state
+    } catch (error) {
+      alert("Login failed: " + error.message);
+      console.error(error);
+    }
   };
 
   return (

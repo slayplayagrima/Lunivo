@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BarChart, Eye, EyeOff, LogIn, User, Mail } from 'lucide-react';
+import { Eye, EyeOff, LogIn, User, Mail } from 'lucide-react';
 import "../styles/Signup.css"
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState('');
@@ -13,22 +16,34 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (password !== confirmPassword) {
-      alert('Passwords do not match');
+      alert("Passwords do not match");
       return;
     }
-
+  
     if (!agreeToTerms) {
-      alert('Please agree to the terms and conditions');
+      alert("Please agree to the terms and conditions");
       return;
     }
+  
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      alert("Account created successfully!");
+      navigate("/dashboard");
 
-    console.log({ firstName, lastName, email, password, agreeToTerms });
-    alert('Account created (demo)');
+      console.log(user);
+      // Redirect or set auth state
+    } catch (error) {
+      alert("Signup failed: " + error.message);
+      console.error(error);
+    }
   };
+ 
 
   return (
     <div className="signup-page">
