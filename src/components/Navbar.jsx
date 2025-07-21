@@ -27,7 +27,7 @@ const Navbar = () => {
           <Link to="/dashboard" onClick={closeMenu}>Dashboard</Link>
           <Link to="/portfolio" onClick={closeMenu}>Portfolio</Link>
           <Link to="/blog" onClick={closeMenu}>Blog</Link>
-          <a href="/market" onClick={closeMenu}>Markets</a>
+          <Link to="/market" onClick={closeMenu}>Markets</Link>
           <Link to="/support" onClick={closeMenu}>Support</Link>
         </div>
 
