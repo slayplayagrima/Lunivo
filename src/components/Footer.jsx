@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BarChart } from "lucide-react";
 import "../styles/Footer.css";
 
 const Footer = () => {

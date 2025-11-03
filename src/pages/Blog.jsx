@@ -16,7 +16,7 @@ export default function Blog() {
       excerpt:
         "Discover how artificial intelligence is revolutionizing investment strategies and helping investors achieve superior returns through data-driven insights.",
       category: "AI & Technology",
-      image: "src/assets/card1.png",
+      image: "https://unsplash.com/photos/close-up-view-of-womans-hands-that-holds-money-near-the-monitors-with-graphs-LO-4UanZPL8",
       author: "Sarah Chen",
       date: "2025-01-04",
       readTime: "8 min read",
@@ -28,7 +28,7 @@ export default function Blog() {
       excerpt:
         "How sustainable investing is consistently delivering both meaningful positive impact and competitive long-term financial performance across global markets.",
       category: "Sustainable Finance",
-      image: "src/assets/card2.png",
+      image: "https://unsplash.com/photos/close-up-view-of-mans-hand-that-points-at-part-of-stock-graph-on-display-64ixJN_75AY",
       author: "Emma Thompson",
       date: "2025-01-06",
       readTime: "7 min read",
@@ -39,7 +39,7 @@ export default function Blog() {
       excerpt:
         "Craft a detailed, long-term financial roadmap that aligns closely with your evolving life goals and adapts to shifting economic changes and market trends.",
       category: "Financial Planning",
-      image: "src/assets/card3.png",
+      image: "https://unsplash.com/photos/graphs-of-performance-analytics-on-a-laptop-screen-JKUTrJ4vK00",
       author: "Lena Walsh",
       date: "2025-01-08",
       readTime: "6 min read",
@@ -51,7 +51,7 @@ export default function Blog() {
       excerpt:
         "Navigate market uncertainty with proven strategies that protect and grow your wealth during volatile periods.",
       category: "Market Analysis",
-      image: "src/assets/card4.png",
+      image: "https://unsplash.com/photos/a-person-holding-two-small-black-books-with-the-words-buy-and-sell-on-them-v_yesrC0s2o",
       author: "Michael Rodriguez",
       date: "2025-01-22",
       readTime: "6 min read",
@@ -75,7 +75,7 @@ export default function Blog() {
       excerpt:
         "Explore strategic approaches to integrating digital assets into traditional investment portfolios while balancing growth and risk.",
       category: "Digital Assets",
-      image: "src/assets/card6.png",
+      image: "https://unsplash.com/photos/smart-caucasian-businessman-hand-touch-invisible-stock-chart-market-screen-dark-background-business-financial-ideas-concept-AWXIZmzOrQo",
       author: "David Kim",
       date: "2025-02-14",
       readTime: "5 min read",
@@ -87,7 +87,7 @@ export default function Blog() {
       excerpt:
         "Analyze key indicators and macroeconomic trends shaping global markets and investor behavior this year.",
       category: "Market Analysis",
-      image: "src/assets/card7.png",
+      image: "https://unsplash.com/photos/financial-chart-and-rising-graph-with-lines-and-numbers-and-bar-diagrams-that-illustrate-stock-market-behaviour-concept-of-successful-trading-dark-blue-background-3d-rendering-AM3wYIikxO4",
       author: "Linda Zhao",
       date: "2025-03-01",
       readTime: "6 min read",
@@ -99,7 +99,7 @@ export default function Blog() {
       excerpt:
         "Discover how artificial intelligence is revolutionizing portfolio strategies and decision-making in finance.",
       category: "AI & Technology",
-      image: "src/assets/card8.png",
+      image: "https://www.istockphoto.com/photo/ai-automatically-trading-bot-software-that-analyzes-market-data-and-executes-trades-gm1898894916-554200002?utm_source=unsplash&utm_medium=affiliate&utm_campaign=srp_photos_bottom&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fstock-market-ai&utm_term=stock+market+ai%3A%3Alayout-below-fold-units-2%3Acontrol",
       author: "Raj Patel",
       date: "2025-03-12",
       readTime: "4 min read",
@@ -111,7 +111,7 @@ export default function Blog() {
       excerpt:
         "Learn how sustainable investing is driving long-term performance while meeting environmental and social goals.",
       category: "Sustainable Finance",
-      image: "src/assets/card9.png",
+      image: "https://media.istockphoto.com/id/2171088734/photo/businesswomen-pointing-to-arrow-up-virtual-to-forecast-and-analyze-the-stock-market-and.webp?a=1&b=1&s=612x612&w=0&k=20&c=dbhaJ7_2wXbmS137qFIMcKtf-Er_HOfWl5l4jFjKA94=",
       author: "Sofia Mendes",
       date: "2025-02-20",
       readTime: "5 min read",

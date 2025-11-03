@@ -1,4 +1,4 @@
-/* Global Styles */
+/* Global Styles  */
 body,
 html {
   scroll-behavior: smooth;
@@ -11,7 +11,7 @@ html {
   color: #f1f5f9;
 }
 
-/* Layout Containers */
+/*  Layout Containers  */
 .home-container {
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@ html {
   padding: 0 1rem;
 }
 
-/* Typography */
+/*  Typography  */
 .home-title {
   font-size: 50px;
   font-weight: 900;
@@ -68,7 +68,7 @@ html {
   text-align: center;
 }
 
-/* Buttons */
+/*  Buttons  */
 .home-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -116,7 +116,7 @@ html {
   font-size: 1.2rem;
 }
 
-/* Stats Section */
+/*  Stats Section  */
 .stats-row {
   display: flex;
   justify-content: center;
@@ -149,7 +149,7 @@ html {
   margin-top: 6px;
 }
 
-/* Cards Grid */
+/*  Cards Grid  */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -158,7 +158,7 @@ html {
   width: 100%;
 }
 
-/* Individual Cards */
+/*  Individual Cards  */
 .custom-card {
   background-color: #0f172a;
   color: white;
@@ -203,7 +203,7 @@ html {
   color: #bdd1ec;;
 }
 
-/* Learn More CTA */
+/*  Learn More CTA  */
 .learn-more {
   opacity: 0;
   visibility: hidden;
@@ -217,7 +217,7 @@ html {
   visibility: visible;
 }
 
-/* Icon Styling */
+/*  Icon Styling  */
 .chart-icon {
   width: 32px;
   height: 32px;
@@ -226,7 +226,7 @@ html {
   border-radius: 5px;
 }
 
-/* Why Choose Us Section */
+/*  Why Choose Us Section  */
 .why-choose-section {
   padding: 5rem 0;
   background: #061527;
@@ -297,7 +297,7 @@ html {
   font-size: 0.950rem;
 }
 
-/* Testimonials */
+/*  Testimonials  */
 .testimonials-section {
   padding: 80px 20px;
   background: #061527;
@@ -412,7 +412,7 @@ html {
   line-height: 1.5;
 }
 
-/* Responsive Adjustments */
+/*  Responsive Adjustments  */
 @media (max-width: 1024px) {
   .home-title {
     font-size: 42px;
