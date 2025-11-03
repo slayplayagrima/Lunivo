@@ -16,7 +16,7 @@ export default function Blog() {
       excerpt:
         "Discover how artificial intelligence is revolutionizing investment strategies and helping investors achieve superior returns through data-driven insights.",
       category: "AI & Technology",
-      image: "https://unsplash.com/photos/close-up-view-of-womans-hands-that-holds-money-near-the-monitors-with-graphs-LO-4UanZPL8",
+      image: "https://plus.unsplash.com/premium_photo-1661611255191-f68d5ad06cc5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2069",
       author: "Sarah Chen",
       date: "2025-01-04",
       readTime: "8 min read",
@@ -28,7 +28,7 @@ export default function Blog() {
       excerpt:
         "How sustainable investing is consistently delivering both meaningful positive impact and competitive long-term financial performance across global markets.",
       category: "Sustainable Finance",
-      image: "https://unsplash.com/photos/close-up-view-of-mans-hand-that-points-at-part-of-stock-graph-on-display-64ixJN_75AY",
+      image: "https://plus.unsplash.com/premium_photo-1661725036006-f8766c0174b6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2069",
       author: "Emma Thompson",
       date: "2025-01-06",
       readTime: "7 min read",
@@ -39,7 +39,7 @@ export default function Blog() {
       excerpt:
         "Craft a detailed, long-term financial roadmap that aligns closely with your evolving life goals and adapts to shifting economic changes and market trends.",
       category: "Financial Planning",
-      image: "https://unsplash.com/photos/graphs-of-performance-analytics-on-a-laptop-screen-JKUTrJ4vK00",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070",
       author: "Lena Walsh",
       date: "2025-01-08",
       readTime: "6 min read",
@@ -51,7 +51,7 @@ export default function Blog() {
       excerpt:
         "Navigate market uncertainty with proven strategies that protect and grow your wealth during volatile periods.",
       category: "Market Analysis",
-      image: "https://unsplash.com/photos/a-person-holding-two-small-black-books-with-the-words-buy-and-sell-on-them-v_yesrC0s2o",
+      image: "https://images.unsplash.com/photo-1642543349642-0d04e91511c9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2071",
       author: "Michael Rodriguez",
       date: "2025-01-22",
       readTime: "6 min read",
@@ -75,7 +75,7 @@ export default function Blog() {
       excerpt:
         "Explore strategic approaches to integrating digital assets into traditional investment portfolios while balancing growth and risk.",
       category: "Digital Assets",
-      image: "https://unsplash.com/photos/smart-caucasian-businessman-hand-touch-invisible-stock-chart-market-screen-dark-background-business-financial-ideas-concept-AWXIZmzOrQo",
+      image: "https://plus.unsplash.com/premium_photo-1664476845274-27c2dabdd7f0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070",
       author: "David Kim",
       date: "2025-02-14",
       readTime: "5 min read",
@@ -87,7 +87,7 @@ export default function Blog() {
       excerpt:
         "Analyze key indicators and macroeconomic trends shaping global markets and investor behavior this year.",
       category: "Market Analysis",
-      image: "https://unsplash.com/photos/financial-chart-and-rising-graph-with-lines-and-numbers-and-bar-diagrams-that-illustrate-stock-market-behaviour-concept-of-successful-trading-dark-blue-background-3d-rendering-AM3wYIikxO4",
+      image: "https://plus.unsplash.com/premium_photo-1681487769650-a0c3fbaed85a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2155",
       author: "Linda Zhao",
       date: "2025-03-01",
       readTime: "6 min read",
@@ -99,7 +99,7 @@ export default function Blog() {
       excerpt:
         "Discover how artificial intelligence is revolutionizing portfolio strategies and decision-making in finance.",
       category: "AI & Technology",
-      image: "https://www.istockphoto.com/photo/ai-automatically-trading-bot-software-that-analyzes-market-data-and-executes-trades-gm1898894916-554200002?utm_source=unsplash&utm_medium=affiliate&utm_campaign=srp_photos_bottom&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fstock-market-ai&utm_term=stock+market+ai%3A%3Alayout-below-fold-units-2%3Acontrol",
+      image: "https://media.istockphoto.com/id/1898894916/photo/ai-automatically-trading-bot-software-that-analyzes-market-data-and-executes-trades.webp?a=1&b=1&s=612x612&w=0&k=20&c=lUA6CAjPJ9S80pju0x308y5nJ49iOAJ3YvloVx0aD9E=",
       author: "Raj Patel",
       date: "2025-03-12",
       readTime: "4 min read",
@@ -123,7 +123,7 @@ export default function Blog() {
       excerpt:
         "Understand how tokenized real estate and commodities are expanding access and transforming asset ownership.",
       category: "Digital Assets",
-      image: "src/assets/card10.png",
+      image: "https://plus.unsplash.com/premium_photo-1661443598082-afd740d6d07c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZnV0dXJlJTIwb2YlMjBzdG9jayUyMG1hcmtldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=900",
       author: "Chris Lang",
       date: "2025-01-29",
       readTime: "7 min read",
@@ -135,7 +135,7 @@ export default function Blog() {
       excerpt:
         "Create a plan that evolves with life changes—from growing your family as well as advancing in your career goals.",
       category: "Financial Planning",
-      image: "src/assets/card11.png",
+      image: "https://plus.unsplash.com/premium_photo-1661434638236-410c530e70a3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RmluYW5jaWFsJTIwUGxhbm5pbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=900",
       author: "Emily Torres",
       date: "2025-03-18",
       readTime: "6 min read",
