@@ -20,18 +20,6 @@ app.get("/", (req, res) => {
   res.send("Lunivo Backend Running");
 });
 
-// // Test route to check server + DB connection
-// app.get("/",async (req,res) => {
-//     try{
-//         await Prisma.$connect();
-//         res.send("Lunivo backend is running and connected to mySQL");
-//     }
-//     catch(error){
-//         console.error("Error connecting to database",(error))
-//         res.status(500).send("Database connection failed");
-//     }
-// });
-
 // Start server
 const PORT = 5000;
 app.listen(PORT, () => {

@@ -41,7 +41,6 @@ export const login=async (req,res) => {
         if (!user) {
         return res.status(404).json({
             message: "User not found. Redirect to signup.",
-            redirectToSignup: true
       });
     }
         const isPasswordValid = await bcrypt.compare(password,user.password);
