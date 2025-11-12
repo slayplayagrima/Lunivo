@@ -29,7 +29,6 @@ const SignUp = () => {
       }
 
       try{
-        // sending signup data to backend
         const response=await fetch("http://localhost:5000/auth/signup",{
           method:"POST",
           headers:{
@@ -48,7 +47,7 @@ const SignUp = () => {
           alert("Account created successfully!");
           console.log("User data:", data);
 
-          localStorage.setItem("token", data.token);
+          // localStorage.setItem("token", data.token);
           navigate("/dashboard");
         }
         else{
