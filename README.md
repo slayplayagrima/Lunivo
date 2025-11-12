@@ -10,10 +10,8 @@
 - **Responsive Design**: Optimal experience across desktop and mobile devices.
 - **Customizable Tracking**: Monitor stocks, crypto, and more, tailored to your preferences.
 
-## Screenshots
-
-<!-- Add relevant screenshots or GIFs here when available -->
-![Dashboard Example](assets/screenshots/dashboard.png)
+## URLS
+- **Frontend**: https://lunivo.vercel.app/
 
 ## Tech Stack
 
