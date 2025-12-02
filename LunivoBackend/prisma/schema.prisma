@@ -28,7 +28,7 @@ model Investment {
   id        Int      @id @default(autoincrement())
   userId    Int
   symbol    String
-  type      String   // NEW! Stock, Mutual Fund, Bond, Crypto
+  type      String    
   quantity  Float
   buyPrice  Float
   createdAt DateTime @default(now())
