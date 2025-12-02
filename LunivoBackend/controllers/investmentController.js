@@ -18,7 +18,7 @@ export const addInvestment = async (req, res) => {
         symbol,
         type,
         quantity: Number(quantity),
-        buyPrice: Number(purchasePrice),
+        buyPrice: Number(buyPrice),
       },
     });
 
