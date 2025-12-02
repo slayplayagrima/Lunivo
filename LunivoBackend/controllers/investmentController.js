@@ -4,10 +4,11 @@ const prisma = new PrismaClient();
 // ADD investment
 export const addInvestment = async (req, res) => {
   try {
-    const userId = req.user.id; // from auth middleware
-    const { symbol, quantity, buyPrice } = req.body;
+    const userId = req.user.id; // from middleware
+    const { symbol, type, quantity, purchasePrice } = req.body;
 
-    if (!symbol || !quantity || !buyPrice) {
+    // Validate all fields
+    if (!symbol || !type || !quantity || !purchasePrice) {
       return res.status(400).json({ message: "All fields required" });
     }
 
@@ -15,8 +16,9 @@ export const addInvestment = async (req, res) => {
       data: {
         userId,
         symbol,
-        quantity: parseFloat(quantity),
-        buyPrice: parseFloat(buyPrice),
+        type,
+        quantity: Number(quantity),
+        purchasePrice: Number(purchasePrice),
       },
     });
 
