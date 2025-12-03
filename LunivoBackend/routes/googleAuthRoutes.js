@@ -10,7 +10,8 @@ const prisma = new PrismaClient();
 const oauth2Client = new google.auth.OAuth2(
   process.env.CLIENT_ID,
   process.env.CLIENT_SECRET,
-  process.env.REDIRECT_URL   // MUST MATCH GOOGLE CONSOLE
+  process.env.REDIRECT_URL ,
+  process.env.REDIRECT_URL_PROD  // MUST MATCH GOOGLE CONSOLE
 );
 
 // STEP 1: Redirect user to Google Login Page

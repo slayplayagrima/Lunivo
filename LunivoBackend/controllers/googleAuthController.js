@@ -7,7 +7,8 @@ const prisma = new PrismaClient();
 const oauth2Client = new google.auth.OAuth2(
   process.env.CLIENT_ID,
   process.env.CLIENT_SECRET,
-  "https://lunivo.onrender.com/auth/google/callback"   // Redirect URL
+  process.env.REDIRECT_URL,
+  process.env.REDIRECT_URL_PROD 
 );
 
 export const handleGoogleAuth = (req, res) => {
