@@ -17,7 +17,7 @@ app.use(express.json());
 app.use("/auth", authRoutes);
 app.use("/auth", googleAuthRoutes);
 
-// INVESTMENTS — must come AFTER express.json()
+
 app.use("/api/investments", authMiddleware, investmentRoutes);
 
 app.get("/", (req, res) => {

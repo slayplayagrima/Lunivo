@@ -28,3 +28,20 @@ export const addInvestment = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+// GET investments
+export const getInvestments = async (req, res) => {
+  try {
+    const userId = req.user.id; // from middleware
+
+    const investments = await prisma.investment.findMany({
+      where: { userId },
+      orderBy: { createdAt: "desc" },
+    });
+
+    res.status(200).json({ investments });
+  } catch (error) {
+    console.error("Get investments error:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
