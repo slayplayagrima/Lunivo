@@ -20,60 +20,123 @@ const pieData = [
 
 const COLORS = ['#00B0FF', '#AA55FF', '#00E676', '#FF6D00'];
 
-const initialHoldings = [
-  { symbol: 'AAPL', name: 'Apple Inc.', type: 'Stock', quantity: 25, avgPrice: 184.92, currentPrice: 187.45 },
-  { symbol: 'VTSAX', name: 'Vanguard Total Stock Market', type: 'Mutual Fund', quantity: 100, avgPrice: 104.5, currentPrice: 106.23 },
-  { symbol: 'BTC', name: 'Bitcoin', type: 'Crypto', quantity: 0.34, avgPrice: 42384.25, currentPrice: 44125.5, alert: true },
-  { symbol: 'AGG', name: 'iShares Core US Aggregate Bond ETF', type: 'Bond', quantity: 50, avgPrice: 103.25, currentPrice: 102.18 },
-];
-
 function Dashboard() {
-  const [holdings, setHoldings] = useState(initialHoldings);
+  const [holdings, setHoldings] = useState([]);
   const [lineData, setLineData] = useState([]);
   const [addOpen, setAddOpen] = useState(false);
+
+  // ✅ FIXED TYPE + buyPrice
+  const [newInvestment, setNewInvestment] = useState({
+    symbol: '',
+    type: 'Stock',
+    quantity: '',
+    buyPrice: ''
+  });
+
   const [alertOpen, setAlertOpen] = useState(false);
-  const [newInvestment, setNewInvestment] = useState({ symbol: '', type: 'Stock', quantity: '', purchasePrice: '' });
-  const [alert, setAlert] = useState({ symbol: '', direction: 'Above', price: '' });
+  const [alert, setAlert] = useState({ symbol: '', direction: '', price: '' });
 
-  useEffect(() => {
-    const fetchIntraday = async () => {
-      try {
-        const res = await fetch(
-          'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=7A310Q55BFZ460SN'
-        );
-        const json = await res.json();
-        const ts = json['Time Series (5min)'];
-        if (!ts) return;
+  useEffect(() => { fetchInvestments(); fetchIntraday(); }, []);
 
-        const data = Object.entries(ts).map(([time, tick]) => ({
-          time,
-          value: parseFloat(tick['4. close'])
-        })).reverse();
+  const fetchInvestments = async () => {
+    const token = localStorage.getItem("token");
 
-        setLineData(data.slice(0, 20));
-      } catch (e) {
-        console.error('API fetch error', e);
+    try {
+      const res = await fetch("https://lunivo.onrender.com/api/investments", {
+        method: "GET",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setHoldings(data.investments);
+      } else {
+        console.error("Fetch failed:", data.message);
       }
-    };
-
-    fetchIntraday();
-  }, []);
-
-  const handleAddInvestment = () => {
-    const inv = {
-      symbol: newInvestment.symbol,
-      name: newInvestment.symbol,
-      type: newInvestment.type,
-      quantity: parseFloat(newInvestment.quantity),
-      avgPrice: parseFloat(newInvestment.purchasePrice),
-      currentPrice: parseFloat(newInvestment.purchasePrice),
-    };
-    setHoldings([...holdings, inv]);
-    setNewInvestment({ symbol: '', type: 'Stock', quantity: '', purchasePrice: '' });
-    setAddOpen(false);
+    } catch (err) {
+      console.error("Error fetching investments:", err);
+    }
   };
 
-  const handleRemove = symbol => setHoldings(holdings.filter(h => h.symbol !== symbol));
+  const fetchIntraday = async () => {
+    try {
+      const res = await fetch(
+        "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=7A310Q55BFZ460SN"
+      );
+      const json = await res.json();
+      const ts = json["Time Series (5min)"];
+      if (!ts) return;
+
+      const data = Object.entries(ts)
+        .map(([time, tick]) => ({
+          time,
+          value: parseFloat(tick["4. close"]),
+        }))
+        .reverse();
+
+      setLineData(data.slice(0, 20));
+    } catch (e) {
+      console.error("API fetch error", e);
+    }
+  };
+
+  const handleAddInvestment = async () => {
+    const token = localStorage.getItem("token");
+
+    try {
+      const res = await fetch("https://lunivo.onrender.com/api/investments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          symbol: newInvestment.symbol,
+          type: newInvestment.type,
+          quantity: Number(newInvestment.quantity),
+          buyPrice: Number(newInvestment.buyPrice),  // ✅ FIXED
+        }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("Investment added!");
+        fetchInvestments();
+        setAddOpen(false);
+        setNewInvestment({
+          symbol: "",
+          type: "Stock",
+          quantity: "",
+          buyPrice: "",
+        });
+      } else {
+        alert(data.message);
+      }
+    } catch (err) {
+      console.error("Add error:", err);
+    }
+  };
+
+  const handleRemove = async (id) => {
+    const token = localStorage.getItem("token");
+
+    try {
+      const res = await fetch(`https://lunivo.onrender.com/api/investments/${id}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (res.ok) {
+        setHoldings(holdings.filter((h) => h.id !== id));
+      } else {
+        console.error("Delete failed");
+      }
+    } catch (err) {
+      console.error("Delete error:", err);
+    }
+  };
 
   return (
     <>
@@ -113,7 +176,7 @@ function Dashboard() {
         {/* Charts */}
         <div className="charts-section">
           <div className="chart-card">
-            <h4>Real‑Time Market Performance</h4>
+            <h4>Real-Time Market Performance</h4>
             {lineData.length ? (
               <ResponsiveContainer width="100%" height={200}>
                 <LineChart data={lineData}>
@@ -164,94 +227,128 @@ function Dashboard() {
               </tr>
             </thead>
             <tbody>
-              {holdings.map((h, i) => {
-                const val = (h.currentPrice * h.quantity).toFixed(2);
-                const pct = (((h.currentPrice - h.avgPrice) / h.avgPrice) * 100).toFixed(2);
+              {holdings.map((h) => {
+                const currentPrice = h.buyPrice;
+                const avgPrice = h.buyPrice;
+                const val = (currentPrice * h.quantity).toFixed(2);
+                const pct = (((currentPrice - avgPrice) / avgPrice) * 100).toFixed(2);
+
                 return (
-                  <tr key={i}>
-                    <td>{h.symbol}{h.alert && <span className="alert-tag">Alert</span>}</td>
+                  <tr key={h.id}>
+                    <td>{h.symbol}</td>
                     <td>{h.type}</td>
                     <td>{h.quantity}</td>
-                    <td>${h.avgPrice}</td>
-                    <td>${h.currentPrice}</td>
+                    <td>${avgPrice}</td>
+                    <td>${currentPrice}</td>
                     <td>${val}</td>
-                    <td className={pct >= 0 ? 'green' : 'red'}>{pct}%</td>
+                    <td className={pct >= 0 ? "green" : "red"}>{pct}%</td>
                     <td>
-                      <Button size="small" variant="outlined" color="error" className="remove-btn" onClick={() => handleRemove(h.symbol)}>Remove</Button>
+                      <Button
+                        size="small"
+                        variant="outlined"
+                        color="error"
+                        onClick={() => handleRemove(h.id)}
+                      >
+                        Remove
+                      </Button>
                     </td>
                   </tr>
                 );
               })}
             </tbody>
           </table>
-          <div style={{ textAlign: 'center', margin: '20px 0' }}>
-            <Link to="/portfolio">
-              <Button variant="outlined" color="primary" className="portfolio-btn">View Full Portfolio</Button>
-            </Link>
-          </div>
         </div>
 
         {/* Add Dialog */}
         <Dialog PaperProps={{
-          sx: {
-            backgroundColor: '#061527',
-            color: 'white',
-            borderRadius: 2,
-            minWidth: 400,
-            p: 2
-          }
-        }} className="dialog-box" open={addOpen} onClose={() => setAddOpen(false)}>
+          sx: { backgroundColor: '#061527', color: 'white', borderRadius: 2, minWidth: 400, p: 2 }
+        }} open={addOpen} onClose={() => setAddOpen(false)}>
           <DialogTitle>
             Add New Investment
             <IconButton onClick={() => setAddOpen(false)} className="close-btn"><CloseIcon /></IconButton>
           </DialogTitle>
+
           <DialogContent>
-            <TextField fullWidth label="Symbol" margin="dense" value={newInvestment.symbol} onChange={e => setNewInvestment({ ...newInvestment, symbol: e.target.value })}
-              sx={inputStyles} />
-            <Select fullWidth margin="dense" value={newInvestment.type} onChange={e => setNewInvestment({ ...newInvestment, type: e.target.value })} displayEmpty
+            <TextField fullWidth label="Symbol" margin="dense"
+              value={newInvestment.symbol}
+              onChange={e => setNewInvestment({ ...newInvestment, symbol: e.target.value })}
+              sx={inputStyles}
+            />
+
+            <Select fullWidth margin="dense"
+              value={newInvestment.type}
+              onChange={e => setNewInvestment({ ...newInvestment, type: e.target.value })}
               sx={selectStyles} MenuProps={menuStyles}>
               <MenuItem value="Stock">Stock</MenuItem>
               <MenuItem value="Mutual Fund">Mutual Fund</MenuItem>
               <MenuItem value="Bond">Bond</MenuItem>
               <MenuItem value="Crypto">Crypto</MenuItem>
             </Select>
-            <TextField fullWidth label="Quantity" type="number" margin="dense" value={newInvestment.quantity} onChange={e => setNewInvestment({ ...newInvestment, quantity: e.target.value })}
-              sx={inputStyles} />
-            <TextField fullWidth label="Purchase Price" type="number" margin="dense" value={newInvestment.purchasePrice} onChange={e => setNewInvestment({ ...newInvestment, purchasePrice: e.target.value })}
-              sx={inputStyles} />
+
+            <TextField fullWidth label="Quantity" type="number"
+              margin="dense"
+              value={newInvestment.quantity}
+              onChange={e => setNewInvestment({ ...newInvestment, quantity: e.target.value })}
+              sx={inputStyles}
+            />
+
+            <TextField fullWidth label="Purchase Price" type="number"
+              margin="dense"
+              value={newInvestment.buyPrice}
+              onChange={e => setNewInvestment({ ...newInvestment, buyPrice: e.target.value })}
+              sx={inputStyles}
+            />
           </DialogContent>
+
           <DialogActions>
-            <Button sx={{ backgroundColor: "hsl(204, 88%, 66%)" }} variant="contained" onClick={handleAddInvestment}>Add Investment</Button>
+            <Button sx={{ backgroundColor: "hsl(204, 88%, 66%)" }}
+              variant="contained"
+              onClick={handleAddInvestment}>
+              Add Investment
+            </Button>
           </DialogActions>
         </Dialog>
 
         {/* Alert Dialog */}
         <Dialog PaperProps={{
-          sx: {
-            backgroundColor: '#061527',
-            color: 'white',
-            borderRadius: 2,
-            minWidth: 400,
-            p: 2
-          }
-        }} className="dialog-box" open={alertOpen} onClose={() => setAlertOpen(false)}>
+          sx: { backgroundColor: '#061527', color: 'white', borderRadius: 2, minWidth: 400, p: 2 }
+        }} open={alertOpen} onClose={() => setAlertOpen(false)}>
           <DialogTitle>
             Set Price Alert
             <IconButton onClick={() => setAlertOpen(false)} className="close-btn"><CloseIcon /></IconButton>
           </DialogTitle>
+
           <DialogContent>
-            <TextField fullWidth label="Asset Symbol" margin="dense" value={alert.symbol} onChange={e => setAlert({ ...alert, symbol: e.target.value })} sx={inputStyles} />
-            <Select fullWidth margin="dense" value={alert.direction} onChange={e => setAlert({ ...alert, direction: e.target.value })} sx={selectStyles} MenuProps={menuStyles}>
+            <TextField fullWidth label="Asset Symbol" margin="dense"
+              value={alert.symbol}
+              onChange={e => setAlert({ ...alert, symbol: e.target.value })}
+              sx={inputStyles}
+            />
+
+            <Select fullWidth margin="dense"
+              value={alert.direction}
+              onChange={e => setAlert({ ...alert, direction: e.target.value })}
+              sx={selectStyles} MenuProps={menuStyles}>
               <MenuItem value="Above">Above</MenuItem>
               <MenuItem value="Below">Below</MenuItem>
             </Select>
-            <TextField fullWidth label="Target Price" type="number" margin="dense" value={alert.price} onChange={e => setAlert({ ...alert, price: e.target.value })} sx={inputStyles} />
+
+            <TextField fullWidth label="Target Price" type="number"
+              margin="dense"
+              value={alert.price}
+              onChange={e => setAlert({ ...alert, price: e.target.value })}
+              sx={inputStyles}
+            />
           </DialogContent>
+
           <DialogActions>
-            <Button variant="contained" onClick={() => {
-              setHoldings(holdings.map(h => h.symbol === alert.symbol ? { ...h, alert: true } : h));
-              setAlertOpen(false);
-            }}>Set Alert</Button>
+            <Button variant="contained"
+              onClick={() => {
+                setHoldings(holdings.map(h => h.symbol === alert.symbol ? { ...h, alert: true } : h));
+                setAlertOpen(false);
+              }}>
+              Set Alert
+            </Button>
           </DialogActions>
         </Dialog>
 
