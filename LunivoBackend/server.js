@@ -10,7 +10,6 @@ import authMiddleware from "./middlewares/authMiddleware.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
 
 app.use(
   cors({
