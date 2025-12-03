@@ -1,5 +1,5 @@
 import express from "express";
-import { addInvestment, getInvestments, deleteInvestments } from "../controllers/investmentController.js";
+import { addInvestment, getInvestments, deleteInvestment } from "../controllers/investmentController.js";
 
 
 const router = express.Router();
