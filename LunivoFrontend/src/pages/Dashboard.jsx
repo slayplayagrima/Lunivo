@@ -25,7 +25,6 @@ function Dashboard() {
   const [lineData, setLineData] = useState([]);
   const [addOpen, setAddOpen] = useState(false);
 
-  // ✅ FIXED TYPE + buyPrice
   const [newInvestment, setNewInvestment] = useState({
     symbol: '',
     type: 'Stock',
@@ -95,7 +94,7 @@ function Dashboard() {
           symbol: newInvestment.symbol,
           type: newInvestment.type,
           quantity: Number(newInvestment.quantity),
-          buyPrice: Number(newInvestment.buyPrice),  // ✅ FIXED
+          buyPrice: Number(newInvestment.buyPrice),
         }),
       });
 
@@ -135,6 +134,39 @@ function Dashboard() {
       }
     } catch (err) {
       console.error("Delete error:", err);
+    }
+  };
+
+  // ⭐⭐⭐ NEW FUNCTION — HANDLE SET ALERT ⭐⭐⭐
+  const handleSetAlert = async () => {
+    const token = localStorage.getItem("token");
+
+    try {
+      const res = await fetch("https://lunivo.onrender.com/api/alerts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          symbol: alert.symbol,
+          direction: alert.direction,
+          targetPrice: Number(alert.price),
+        }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("Price alert added successfully!");
+        setAlertOpen(false);
+        setAlert({ symbol: "", direction: "", price: "" });
+      } else {
+        alert(data.message || "Failed to add alert");
+      }
+    } catch (err) {
+      console.error("ALERT ERROR:", err);
+      alert("Server error");
     }
   };
 
@@ -342,11 +374,8 @@ function Dashboard() {
           </DialogContent>
 
           <DialogActions>
-            <Button variant="contained"
-              onClick={() => {
-                setHoldings(holdings.map(h => h.symbol === alert.symbol ? { ...h, alert: true } : h));
-                setAlertOpen(false);
-              }}>
+            {/* ⭐⭐⭐ NEW ALERT BUTTON HANDLER ⭐⭐⭐ */}
+            <Button variant="contained" onClick={handleSetAlert}>
               Set Alert
             </Button>
           </DialogActions>
