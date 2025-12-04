@@ -22,7 +22,7 @@ const COLORS = ['#00B0FF', '#AA55FF', '#00E676', '#FF6D00'];
 
 function Dashboard() {
   const [holdings, setHoldings] = useState([]);
-  const [alerts, setAlerts] = useState([]); // ⭐ NEW STATE FOR ALERTS
+  const [alerts, setAlerts] = useState([]); // ⭐ ALERT STATE
   const [lineData, setLineData] = useState([]);
   const [addOpen, setAddOpen] = useState(false);
 
@@ -36,11 +36,11 @@ function Dashboard() {
   const [alertOpen, setAlertOpen] = useState(false);
   const [alert, setAlert] = useState({ symbol: '', direction: '', price: '' });
 
-  // ⭐ Call investments + intraday + alerts
+  // ⭐ Fetch investments + alerts + intraday
   useEffect(() => { 
     fetchInvestments(); 
+    fetchAlerts();
     fetchIntraday(); 
-    fetchAlerts(); 
   }, []);
 
   // ⭐ FETCH INVESTMENTS
@@ -54,15 +54,8 @@ function Dashboard() {
       });
 
       const data = await res.json();
-
-      if (res.ok) {
-        setHoldings(data.investments);
-      } else {
-        console.error("Fetch failed:", data.message);
-      }
-    } catch (err) {
-      console.error("Error fetching investments:", err);
-    }
+      if (res.ok) setHoldings(data.investments);
+    } catch (err) { console.error("Error fetching investments:", err); }
   };
 
   // ⭐ FETCH ALERTS
@@ -76,16 +69,11 @@ function Dashboard() {
       });
 
       const data = await res.json();
-
-      if (res.ok) {
-        setAlerts(data.alerts); // store alerts
-      }
-    } catch (err) {
-      console.error("Error fetching alerts:", err);
-    }
+      if (res.ok) setAlerts(data.alerts);
+    } catch (err) { console.error("Error fetching alerts:", err); }
   };
 
-  // ⭐ FETCH INTRADAY DATA
+  // ⭐ FETCH REAL-TIME CHART
   const fetchIntraday = async () => {
     try {
       const res = await fetch(
@@ -103,12 +91,10 @@ function Dashboard() {
         .reverse();
 
       setLineData(data.slice(0, 20));
-    } catch (e) {
-      console.error("API fetch error", e);
-    }
+    } catch (e) { console.error("API fetch error", e); }
   };
 
-  // ⭐ ADD NEW INVESTMENT
+  // ⭐ ADD INVESTMENT
   const handleAddInvestment = async () => {
     const token = localStorage.getItem("token");
 
@@ -139,12 +125,9 @@ function Dashboard() {
           quantity: "",
           buyPrice: "",
         });
-      } else {
-        alert(data.message);
-      }
-    } catch (err) {
-      console.error("Add error:", err);
-    }
+      } else alert(data.message);
+
+    } catch (err) { console.error("Add error:", err); }
   };
 
   // ⭐ REMOVE INVESTMENT
@@ -157,17 +140,11 @@ function Dashboard() {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      if (res.ok) {
-        setHoldings(holdings.filter((h) => h.id !== id));
-      } else {
-        console.error("Delete failed");
-      }
-    } catch (err) {
-      console.error("Delete error:", err);
-    }
+      if (res.ok) setHoldings(holdings.filter((h) => h.id !== id));
+    } catch (err) { console.error("Delete error:", err); }
   };
 
-  // ⭐ SET A NEW PRICE ALERT
+  // ⭐ SET NEW PRICE ALERT
   const handleSetAlert = async () => {
     const token = localStorage.getItem("token");
 
@@ -188,42 +165,48 @@ function Dashboard() {
       const data = await res.json();
 
       if (res.ok) {
-        alert("Price alert added successfully!");
-        fetchAlerts(); // ⭐ refresh alerts
+        alert("Price alert added!");
+        fetchAlerts();
         setAlertOpen(false);
         setAlert({ symbol: "", direction: "", price: "" });
-      } else {
-        alert(data.message || "Failed to add alert");
-      }
-    } catch (err) {
-      console.error("ALERT ERROR:", err);
-      alert("Server error");
-    }
+      } else alert(data.message);
+
+    } catch (err) { console.error("ALERT ERROR:", err); }
   };
 
-  // ⭐ Match alerts to holdings
-  const holdingsWithAlerts = holdings.map(h => ({
-    ...h,
-    alert: alerts.some(a => a.symbol.toUpperCase() === h.symbol.toUpperCase())
-  }));
+  // ⭐ GET ALERT ARROW FOR HOLDINGS
+  const getAlertArrow = (symbol) => {
+    const found = alerts.find(a => a.symbol.toUpperCase() === symbol.toUpperCase());
+    if (!found) return "-";
+
+    return (
+      <span style={{
+        color: found.direction === "Above" ? "limegreen" : "red",
+        fontSize: "20px",
+        fontWeight: "bold"
+      }}>
+        {found.direction === "Above" ? "↑" : "↓"}
+      </span>
+    );
+  };
 
   return (
     <>
       <Navbar />
       <div className="dashboard">
 
-        {/* Header */}
+        {/* HEADER */}
         <div className="header">
           <div>Investment Dashboard</div>
-          <p>Track and manage your investment performance across stocks, mutual funds, and bonds with real-time analytics</p>
+          <p>Track and manage your investment performance across assets</p>
         </div>
 
-        {/* Stats */}
+        {/* STATS */}
         <div className="stats-grid">
           <div className="stat-box">
             <h3>$35,020.92</h3>
             <p>Total Portfolio Value</p>
-            <span className="green">↑ +1.08% (+$374.78)</span>
+            <span className="green">↑ +1.08%</span>
           </div>
           <div className="stat-box">
             <h3>$24,248.72</h3>
@@ -231,9 +214,9 @@ function Dashboard() {
             <span className="green">↑ +0.38% today</span>
           </div>
           <div className="stat-box">
-            <h3>4</h3>
+            <h3>{holdings.length}</h3>
             <p>Active Investments</p>
-            <small>1 with alerts</small>
+            <small>{alerts.length} alerts active</small>
           </div>
           <div className="stat-box">
             <h3>-0.80%</h3>
@@ -242,7 +225,7 @@ function Dashboard() {
           </div>
         </div>
 
-        {/* Charts */}
+        {/* CHARTS */}
         <div className="charts-section">
           <div className="chart-card">
             <h4>Real-Time Market Performance</h4>
@@ -256,7 +239,7 @@ function Dashboard() {
                 </LineChart>
               </ResponsiveContainer>
             ) : (
-              <p style={{ textAlign: 'center', color: '#94a3b8' }}>Loading real-time data...</p>
+              <p style={{ textAlign: 'center', color: '#94a3b8' }}>Loading...</p>
             )}
           </div>
 
@@ -273,21 +256,22 @@ function Dashboard() {
           </div>
         </div>
 
-        {/* Actions */}
+        {/* ACTION BUTTONS */}
         <div className="actions">
           <Button onClick={() => setAlertOpen(true)} variant="outlined" className="alert-btn">Price Alerts</Button>
           <Button onClick={() => setAddOpen(true)} variant="contained" className="add-btn">+ Add Investment</Button>
         </div>
 
-        {/* Holdings Table */}
+        {/* HOLDINGS TABLE */}
         <div className="holdings-table">
           <h3>Current Holdings</h3>
+
           <table>
             <thead>
               <tr>
                 <th>Asset</th>
                 <th>Type</th>
-                <th>Quantity</th>
+                <th>Qty</th>
                 <th>Avg Price</th>
                 <th>Current Price</th>
                 <th>Value</th>
@@ -298,7 +282,7 @@ function Dashboard() {
             </thead>
 
             <tbody>
-              {holdingsWithAlerts.map((h) => {
+              {holdings.map((h) => {
                 const currentPrice = h.buyPrice;
                 const avgPrice = h.buyPrice;
                 const val = (currentPrice * h.quantity).toFixed(2);
@@ -314,8 +298,8 @@ function Dashboard() {
                     <td>${val}</td>
                     <td className={pct >= 0 ? "green" : "red"}>{pct}%</td>
 
-                    {/* ⭐ SHOW ALERT STATUS */}
-                    <td>{h.alert ? "🔔 Active" : "-"}</td>
+                    {/* ⭐ ALERT ARROW DISPLAY */}
+                    <td>{getAlertArrow(h.symbol)}</td>
 
                     <td>
                       <Button
@@ -335,7 +319,7 @@ function Dashboard() {
           </table>
         </div>
 
-        {/* Add Investment Dialog */}
+        {/* ADD INVESTMENT DIALOG */}
         <Dialog PaperProps={{
           sx: { backgroundColor: '#061527', color: 'white', borderRadius: 2, minWidth: 400, p: 2 }
         }} open={addOpen} onClose={() => setAddOpen(false)}>
@@ -354,22 +338,21 @@ function Dashboard() {
             <Select fullWidth margin="dense"
               value={newInvestment.type}
               onChange={e => setNewInvestment({ ...newInvestment, type: e.target.value })}
-              sx={selectStyles} MenuProps={menuStyles}>
+              sx={selectStyles} MenuProps={menuStyles}
+            >
               <MenuItem value="Stock">Stock</MenuItem>
               <MenuItem value="Mutual Fund">Mutual Fund</MenuItem>
               <MenuItem value="Bond">Bond</MenuItem>
               <MenuItem value="Crypto">Crypto</MenuItem>
             </Select>
 
-            <TextField fullWidth label="Quantity" type="number"
-              margin="dense"
+            <TextField fullWidth label="Quantity" type="number" margin="dense"
               value={newInvestment.quantity}
               onChange={e => setNewInvestment({ ...newInvestment, quantity: e.target.value })}
               sx={inputStyles}
             />
 
-            <TextField fullWidth label="Purchase Price" type="number"
-              margin="dense"
+            <TextField fullWidth label="Purchase Price" type="number" margin="dense"
               value={newInvestment.buyPrice}
               onChange={e => setNewInvestment({ ...newInvestment, buyPrice: e.target.value })}
               sx={inputStyles}
@@ -379,19 +362,22 @@ function Dashboard() {
           <DialogActions>
             <Button sx={{ backgroundColor: "hsl(204, 88%, 66%)" }}
               variant="contained"
-              onClick={handleAddInvestment}>
+              onClick={handleAddInvestment}
+            >
               Add Investment
             </Button>
           </DialogActions>
         </Dialog>
 
-        {/* Alert Dialog */}
+        {/* ALERT DIALOG */}
         <Dialog PaperProps={{
           sx: { backgroundColor: '#061527', color: 'white', borderRadius: 2, minWidth: 400, p: 2 }
         }} open={alertOpen} onClose={() => setAlertOpen(false)}>
           <DialogTitle>
             Set Price Alert
-            <IconButton onClick={() => setAlertOpen(false)} className="close-btn"><CloseIcon /></IconButton>
+            <IconButton onClick={() => setAlertOpen(false)} className="close-btn">
+              <CloseIcon />
+            </IconButton>
           </DialogTitle>
 
           <DialogContent>
@@ -402,16 +388,15 @@ function Dashboard() {
             />
 
             <Select fullWidth margin="dense"
-            label="Direction"
               value={alert.direction}
               onChange={e => setAlert({ ...alert, direction: e.target.value })}
-              sx={selectStyles} MenuProps={menuStyles}>
+              sx={selectStyles} MenuProps={menuStyles}
+            >
               <MenuItem value="Above">Above</MenuItem>
               <MenuItem value="Below">Below</MenuItem>
             </Select>
 
-            <TextField fullWidth label="Target Price" type="number"
-              margin="dense"
+            <TextField fullWidth label="Target Price" type="number" margin="dense"
               value={alert.price}
               onChange={e => setAlert({ ...alert, price: e.target.value })}
               sx={inputStyles}
@@ -431,6 +416,7 @@ function Dashboard() {
   );
 }
 
+// INPUT STYLES
 const inputStyles = {
   '& label': { color: '#bdd1ec' },
   '& label.Mui-focused': { color: 'hsl(204, 88%, 66%)' },
@@ -441,6 +427,7 @@ const inputStyles = {
   }
 };
 
+// SELECT DROPDOWN STYLES
 const selectStyles = {
   color: "#bdd1ec",
   '& .MuiOutlinedInput-notchedOutline': { borderColor: '#000' },
@@ -449,6 +436,7 @@ const selectStyles = {
   '& .MuiSelect-icon': { color: '#bdd1ec' }
 };
 
+// MENU STYLES
 const menuStyles = {
   PaperProps: {
     sx: {
