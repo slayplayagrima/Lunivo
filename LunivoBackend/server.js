@@ -24,10 +24,8 @@ app.use(
 
 app.use(express.json());
 
-// AUTH ROUTES
+
 app.use("/auth", authRoutes);
-
-
 app.use("/api/investments", authMiddleware, investmentRoutes);
 app.use("/api/alerts", alertRoutes);
 

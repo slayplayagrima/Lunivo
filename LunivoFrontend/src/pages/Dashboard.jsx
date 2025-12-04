@@ -22,6 +22,7 @@ const COLORS = ['#00B0FF', '#AA55FF', '#00E676', '#FF6D00'];
 
 function Dashboard() {
   const [holdings, setHoldings] = useState([]);
+  const [alerts, setAlerts] = useState([]); // ⭐ NEW STATE FOR ALERTS
   const [lineData, setLineData] = useState([]);
   const [addOpen, setAddOpen] = useState(false);
 
@@ -35,8 +36,14 @@ function Dashboard() {
   const [alertOpen, setAlertOpen] = useState(false);
   const [alert, setAlert] = useState({ symbol: '', direction: '', price: '' });
 
-  useEffect(() => { fetchInvestments(); fetchIntraday(); }, []);
+  // ⭐ Call investments + intraday + alerts
+  useEffect(() => { 
+    fetchInvestments(); 
+    fetchIntraday(); 
+    fetchAlerts(); 
+  }, []);
 
+  // ⭐ FETCH INVESTMENTS
   const fetchInvestments = async () => {
     const token = localStorage.getItem("token");
 
@@ -58,6 +65,27 @@ function Dashboard() {
     }
   };
 
+  // ⭐ FETCH ALERTS
+  const fetchAlerts = async () => {
+    const token = localStorage.getItem("token");
+
+    try {
+      const res = await fetch("https://lunivo.onrender.com/api/alerts", {
+        method: "GET",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setAlerts(data.alerts); // store alerts
+      }
+    } catch (err) {
+      console.error("Error fetching alerts:", err);
+    }
+  };
+
+  // ⭐ FETCH INTRADAY DATA
   const fetchIntraday = async () => {
     try {
       const res = await fetch(
@@ -80,6 +108,7 @@ function Dashboard() {
     }
   };
 
+  // ⭐ ADD NEW INVESTMENT
   const handleAddInvestment = async () => {
     const token = localStorage.getItem("token");
 
@@ -118,6 +147,7 @@ function Dashboard() {
     }
   };
 
+  // ⭐ REMOVE INVESTMENT
   const handleRemove = async (id) => {
     const token = localStorage.getItem("token");
 
@@ -137,7 +167,7 @@ function Dashboard() {
     }
   };
 
-  // ⭐⭐⭐ NEW FUNCTION — HANDLE SET ALERT ⭐⭐⭐
+  // ⭐ SET A NEW PRICE ALERT
   const handleSetAlert = async () => {
     const token = localStorage.getItem("token");
 
@@ -159,6 +189,7 @@ function Dashboard() {
 
       if (res.ok) {
         alert("Price alert added successfully!");
+        fetchAlerts(); // ⭐ refresh alerts
         setAlertOpen(false);
         setAlert({ symbol: "", direction: "", price: "" });
       } else {
@@ -169,6 +200,12 @@ function Dashboard() {
       alert("Server error");
     }
   };
+
+  // ⭐ Match alerts to holdings
+  const holdingsWithAlerts = holdings.map(h => ({
+    ...h,
+    alert: alerts.some(a => a.symbol.toUpperCase() === h.symbol.toUpperCase())
+  }));
 
   return (
     <>
@@ -255,11 +292,13 @@ function Dashboard() {
                 <th>Current Price</th>
                 <th>Value</th>
                 <th>Return</th>
+                <th>Alert</th> {/* ⭐ NEW COLUMN */}
                 <th>Actions</th>
               </tr>
             </thead>
+
             <tbody>
-              {holdings.map((h) => {
+              {holdingsWithAlerts.map((h) => {
                 const currentPrice = h.buyPrice;
                 const avgPrice = h.buyPrice;
                 const val = (currentPrice * h.quantity).toFixed(2);
@@ -274,6 +313,10 @@ function Dashboard() {
                     <td>${currentPrice}</td>
                     <td>${val}</td>
                     <td className={pct >= 0 ? "green" : "red"}>{pct}%</td>
+
+                    {/* ⭐ SHOW ALERT STATUS */}
+                    <td>{h.alert ? "🔔 Active" : "-"}</td>
+
                     <td>
                       <Button
                         size="small"
@@ -288,10 +331,11 @@ function Dashboard() {
                 );
               })}
             </tbody>
+
           </table>
         </div>
 
-        {/* Add Dialog */}
+        {/* Add Investment Dialog */}
         <Dialog PaperProps={{
           sx: { backgroundColor: '#061527', color: 'white', borderRadius: 2, minWidth: 400, p: 2 }
         }} open={addOpen} onClose={() => setAddOpen(false)}>
@@ -358,6 +402,7 @@ function Dashboard() {
             />
 
             <Select fullWidth margin="dense"
+            label="Direction"
               value={alert.direction}
               onChange={e => setAlert({ ...alert, direction: e.target.value })}
               sx={selectStyles} MenuProps={menuStyles}>
@@ -374,7 +419,6 @@ function Dashboard() {
           </DialogContent>
 
           <DialogActions>
-            {/* ⭐⭐⭐ NEW ALERT BUTTON HANDLER ⭐⭐⭐ */}
             <Button variant="contained" onClick={handleSetAlert}>
               Set Alert
             </Button>
