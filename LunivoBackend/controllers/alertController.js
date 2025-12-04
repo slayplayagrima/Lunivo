@@ -21,24 +21,25 @@ export const addAlert = async (req, res) => {
 
     res.json({ message: "Alert created", alert });
   } catch (err) {
-    console.error("ADD ALERT ERROR:", err.message, err);
+    console.error("ADD ALERT ERROR:", err);
     res.status(500).json({ message: "Server error" });
   }
 };
 
-// export const getAlerts = async (req, res) => {
-//   try {
-//     const userId = req.user.id;
+export const getAlerts = async (req, res) => {
+  try {
+    const userId = req.user.id;
 
-//     const alerts = await prisma.priceAlert.findMany({
-//       where: { userId },
-//       orderBy: { createdAt: "desc" }
-//     });
+    console.log("Fetching alerts for user:", userId);
 
-//     res.json({ alerts });
-//   } catch (err) {
-//     console.error("GET ALERTS ERROR:", err);
-//     res.status(500).json({ message: "Server error" });
-//   }
-// };
+    const alerts = await prisma.priceAlert.findMany({
+      where: { userId },
+      orderBy: { createdAt: "desc" }
+    });
 
+    res.json({ alerts });
+  } catch (err) {
+    console.error("GET ALERTS ERROR:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
