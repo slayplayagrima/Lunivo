@@ -1,5 +1,5 @@
 import express from "express";
-import { addAlert, getAlerts } from "../controllers/alertController.js";
+import { addAlert } from "../controllers/alertController.js";
 import authMiddleware from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
